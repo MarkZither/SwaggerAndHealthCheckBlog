@@ -27,12 +27,12 @@
 
   <!-- NuGet dependencies shared across projects -->
   <PropertyGroup>
-    <MicrosoftAspNetCorePackageVersion>3.1.1</MicrosoftAspNetCorePackageVersion>
-    <MicrosoftEntityFrameworkCorePackageVersion>3.1.1</MicrosoftEntityFrameworkCorePackageVersion>
-    <MicrosoftExtensionsPackageVersion>3.1.1</MicrosoftExtensionsPackageVersion>
+    <MicrosoftAspNetCorePackageVersion>3.1.3</MicrosoftAspNetCorePackageVersion>
+    <MicrosoftEntityFrameworkCorePackageVersion>3.1.3</MicrosoftEntityFrameworkCorePackageVersion>
+    <MicrosoftExtensionsPackageVersion>3.1.3</MicrosoftExtensionsPackageVersion>
     <NuGetPackageVersion>5.4.0</NuGetPackageVersion>
-    <AspNetCoreHealthChecksVersion>3.1.1</AspNetCoreHealthChecksVersion>
-    <AspNetCoreHealthChecksUIVersion>3.0.11</AspNetCoreHealthChecksUIVersion>
+    <AspNetCoreHealthChecksVersion>3.1.2</AspNetCoreHealthChecksVersion>
+    <AspNetCoreHealthChecksUIVersion>3.1.1</AspNetCoreHealthChecksUIVersion>
     <SwashbuckleVersion>5.5.1</SwashbuckleVersion>
     <ServicesSharedVersion>1.0.0</ServicesSharedVersion>
     <VSContainersVersion>1.10.9</VSContainersVersion>
