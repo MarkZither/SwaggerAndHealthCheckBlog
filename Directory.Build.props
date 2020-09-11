@@ -1,0 +1,52 @@
+<Project>
+
+  <PropertyGroup>
+    <Product>BaGet</Product>
+
+    <PackageVersion Condition="'$(PackageVersion)' == ''">0.1.0-prerelease</PackageVersion>
+    <PackageProjectUrl>https://github.com/MarkZither/SwaggerAndHealthCheckBlog</PackageProjectUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageIconUrl>https://raw.githubusercontent.com/NuGet/Media/master/Images/MainLogo/256x256/nuget_256.png</PackageIconUrl>
+
+    <RepositoryUrl>https://github.com/MarkZither/SwaggerAndHealthCheckBlog</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+
+    <LangVersion>preview</LangVersion>
+    <NoWarn>1591</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <DebugType>portable</DebugType>
+    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+  </PropertyGroup>
+
+  <!-- NuGet dependencies shared across projects -->
+  <PropertyGroup>
+    <MicrosoftAspNetCorePackageVersion>3.1.1</MicrosoftAspNetCorePackageVersion>
+    <MicrosoftEntityFrameworkCorePackageVersion>3.1.1</MicrosoftEntityFrameworkCorePackageVersion>
+    <MicrosoftExtensionsPackageVersion>3.1.1</MicrosoftExtensionsPackageVersion>
+    <NuGetPackageVersion>5.4.0</NuGetPackageVersion>
+    <AspNetCoreHealthChecksVersion>3.1.1</AspNetCoreHealthChecksVersion>
+    <AspNetCoreHealthChecksUIVersion>3.0.11</AspNetCoreHealthChecksUIVersion>
+    <SwashbuckleVersion>5.5.1</SwashbuckleVersion>
+    <ServicesSharedVersion>1.0.0</ServicesSharedVersion>
+    <VSContainersVersion>1.10.9</VSContainersVersion>
+    <NewtonsoftVersion>12.0.3</NewtonsoftVersion>
+    <NLogVersion>4.7.4</NLogVersion>
+    <NLogWebVersion>4.9.3</NLogWebVersion>
+  </PropertyGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net461' ">
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.0-preview.2" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(CI)' == 'true' AND '$(DOTNET_RUNNING_IN_CONTAINER)' == ''">
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All"/>
+  </ItemGroup>
+
+</Project>

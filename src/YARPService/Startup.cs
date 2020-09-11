@@ -10,6 +10,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.ReverseProxy;
+
 namespace YARPService
 {
     public class Startup
@@ -24,8 +26,8 @@ namespace YARPService
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
-            services.AddControllers();
+            services.AddReverseProxy()
+                .LoadFromConfig(Configuration.GetSection("ReverseProxy"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -44,7 +46,7 @@ namespace YARPService
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllers();
+                endpoints.MapReverseProxy();
             });
         }
     }
