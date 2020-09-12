@@ -1,25 +1,17 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Threading.Tasks;
-using HealthChecks.Network;
-using HealthChecks.System;
-using HealthChecks.UI;
 using HealthChecks.UI.Client;
 using LoginService.DataAccess;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using System.Linq;
+using System.Net;
+
+using Services.Shared.Extensions;
 
 namespace LoginService
 {
@@ -70,8 +62,9 @@ namespace LoginService
 
             services.AddOptions();
 
-            services.AddSwaggerGen(c => {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Collaboration Portal Login Service", Version = "v1" });
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Swagger and HealthCheck blog Login Service", Version = "v1" });
             });
 
             services.AddControllers();
@@ -88,6 +81,13 @@ namespace LoginService
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseSwaggerUrlPortAuthMiddleware();
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("v1/swagger.json", "Login Service API V1");
+            });
 
             app.UseAuthorization();
 
