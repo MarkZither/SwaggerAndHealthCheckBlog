@@ -24,7 +24,9 @@ namespace MonitoringService
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            services
+                .AddHealthChecksUI()
+                .AddInMemoryStorage();
             services.AddControllers();
         }
 
@@ -41,6 +43,8 @@ namespace MonitoringService
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseHealthChecksUI(config => config.UIPath = "/hc-ui");
 
             app.UseEndpoints(endpoints =>
             {

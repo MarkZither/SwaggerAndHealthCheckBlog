@@ -1,15 +1,21 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
+using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using ResourceService.DataAccess;
+
 namespace ResourceService
 {
     public class Startup
@@ -26,6 +32,37 @@ namespace ResourceService
         {
 
             services.AddControllers();
+
+            var targetHost = "www.microsoft.com";
+            var targetHostIpAddresses = Dns.GetHostAddresses(targetHost).Select(h => h.ToString()).ToArray();
+
+            var targetHost2 = "localhost";
+            var targetHost2IpAddresses = Dns.GetHostAddresses(targetHost2).Select(h => h.ToString()).ToArray();
+            var maximumMemory = 104857600;
+
+            services.AddHealthChecks()
+                .AddDnsResolveHealthCheck(setup =>
+                {
+                    setup.ResolveHost(targetHost).To(targetHostIpAddresses)
+                    .ResolveHost(targetHost2).To(targetHost2IpAddresses);
+                }, tags: new string[] { "dns" }, name: "DNS Check")
+                .AddPingHealthCheck(setup =>
+                {
+                    setup.AddHost("127.0.0.1", 5000);
+                }, tags: new string[] { "ping" }, name: "Ping Check")
+                .AddTcpHealthCheck(setup =>
+                {
+                    setup.AddHost("127.0.0.1", 1121);
+                }, tags: new string[] { "tcp" }, name: "Logging TCP port Check")
+                .AddPrivateMemoryHealthCheck(maximumMemory
+                , tags: new string[] { "privatememory" }, name: "PrivateMemory Check")
+                .AddWorkingSetHealthCheck(maximumMemory
+                , tags: new string[] { "workingset" }, name: "WorkingSet Check")
+                .AddVirtualMemorySizeHealthCheck(maximumMemory
+                , tags: new string[] { "virtualmemory" }, name: "VirtualMemory Check");
+            // Add a health check for a SQL Server database
+            services.AddDbContext<ResourceDataContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("ResourceDb")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -42,9 +79,17 @@ namespace ResourceService
 
             app.UseAuthorization();
 
+            // HealthCheck middleware
+            app.UseHealthChecks("/hc", $"{Configuration["ManagementPort"]}", new HealthCheckOptions()
+            {
+                Predicate = _ => true,
+                ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+            });
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHealthChecks("/health").RequireHost($"*:{Configuration["ManagementPort"]}");
             });
         }
     }
