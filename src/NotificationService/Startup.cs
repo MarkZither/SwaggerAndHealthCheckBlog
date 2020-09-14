@@ -1,5 +1,5 @@
+using HealthChecks.Network.Core;
 using HealthChecks.UI.Client;
-using LoginService.DataAccess;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Hosting;
@@ -12,13 +12,13 @@ using System.Linq;
 using System.Net;
 
 using Services.Shared.Extensions;
-using System;
-using Microsoft.Extensions.Diagnostics.HealthChecks;
 
-namespace LoginService
+namespace NotificationService
 {
     public class Startup
     {
+        private readonly string _host = "smtp.gmail.com";
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -29,7 +29,8 @@ namespace LoginService
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().AddNewtonsoftJson();
+
+            services.AddControllers();
 
             var targetHost = "www.microsoft.com";
             var targetHostIpAddresses = Dns.GetHostAddresses(targetHost).Select(h => h.ToString()).ToArray();
@@ -52,26 +53,25 @@ namespace LoginService
                 {
                     setup.AddHost("127.0.0.1", 1116);
                 }, tags: new string[] { "tcp" }, name: "TCP port Check")
+                .AddSmtpHealthCheck(setup =>
+                {
+                    //SSL on by default
+                    setup.Host = _host;
+                    setup.Port = 465;
+                    setup.ConnectionType = SmtpConnectionType.SSL;
+                    setup.AllowInvalidRemoteCertificates = true;
+                }, tags: new string[] { "smtp" })
                 .AddPrivateMemoryHealthCheck(maximumMemory
                 , tags: new string[] { "privatememory" }, name: "PrivateMemory Check")
                 .AddWorkingSetHealthCheck(maximumMemory
                 , tags: new string[] { "workingset" }, name: "WorkingSet Check")
                 .AddVirtualMemorySizeHealthCheck(maximumMemory
-                , tags: new string[] { "virtualmemory" }, name: "VirtualMemory Check", failureStatus: HealthStatus.Degraded)
-                .AddSqlServer(Configuration.GetConnectionString("LoginServiceDb"), tags: new string[] { "sqlserver" })
-                .AddIdentityServer(new Uri("http://localhost:7777"), tags: new string[] { "idsvr" });
-            // Add a health check for a SQL Server database
-            services.AddDbContext<AuthContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("LoginServiceDb")));
-
-            services.AddOptions();
+                , tags: new string[] { "virtualmemory" }, name: "VirtualMemory Check");
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Swagger and HealthCheck blog Login Service", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Swagger and HealthCheck blog Notification Service", Version = "v1" });
             });
-
-            services.AddControllers();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -82,7 +82,7 @@ namespace LoginService
                 app.UseDeveloperExceptionPage();
             }
 
-            //app.UseHttpsRedirection();
+            app.UseHttpsRedirection();
 
             app.UseRouting();
 

@@ -32,6 +32,8 @@
     <MicrosoftExtensionsPackageVersion>5.0.0-preview.8*</MicrosoftExtensionsPackageVersion>
     <NuGetPackageVersion>5.4.0</NuGetPackageVersion>
     <AspNetCoreHealthChecksVersion>3.1.2</AspNetCoreHealthChecksVersion>
+    <AspNetCoreHealthChecksSqlServerVersion>3.1.1</AspNetCoreHealthChecksSqlServerVersion>
+    <AspNetCoreHealthChecksIdSrvVersion>3.1.1</AspNetCoreHealthChecksIdSrvVersion>
     <AspNetCoreHealthChecksUIVersion>3.1.1</AspNetCoreHealthChecksUIVersion>
     <SwashbuckleVersion>5.5.1</SwashbuckleVersion>
     <ServicesSharedVersion>1.1.0-prerelease</ServicesSharedVersion>
