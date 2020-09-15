@@ -38,11 +38,14 @@ namespace MonitoringService
 
             app.UseAuthorization();
 
-            app.UseHealthChecksUI(config => config.UIPath = "/hc-ui");
+            app.UseHealthChecksUI() ;
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHealthChecksUI(config => {
+                    config.UIPath = "/hc-ui";
+                }).RequireHost($"*:{Configuration["ManagementPort"]}");
             });
         }
     }
