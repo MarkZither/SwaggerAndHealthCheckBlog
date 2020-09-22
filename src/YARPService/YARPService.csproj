@@ -18,4 +18,8 @@
     <PackageReference Include="Microsoft.ReverseProxy" Version="1.0.0-preview.4.*" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="logs\" />
+  </ItemGroup>
+
 </Project>

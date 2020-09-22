@@ -13,6 +13,7 @@ namespace YARPService
             var logger = NLog.Web.NLogBuilder.ConfigureNLog("nlog.config").GetCurrentClassLogger();
             try
             {
+                logger.Trace("Trace enabled");
                 logger.Debug("init main");
                 CreateHostBuilder(args).Build().Run();
             }
@@ -36,8 +37,9 @@ namespace YARPService
                     webBuilder.UseStartup<Startup>();
                 })
                 .ConfigureLogging(logging => {
+                    logging.ClearProviders();
                     logging.SetMinimumLevel(Microsoft.Extensions.Logging.LogLevel.Trace);
                 })
-                .UseNLog(); // NLog: Setup NLog for Dependency injection;
+                .UseNLog(new NLogAspNetCoreOptions() { }); // NLog: Setup NLog for Dependency injection;
     }
 }
