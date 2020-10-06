@@ -5,6 +5,7 @@
     <UserSecretsId>45cff0ab-098d-4791-857e-8873cefba9f7</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <DockerfileContext>..\..</DockerfileContext>
+    <PackageTags>8C17E6D4-8534-40F6-B3D3-0296EC69099F</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
@@ -14,6 +15,7 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="$(MicrosoftExtensionsPackageVersion)" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="$(MicrosoftExtensionsPackageVersion)" />
     <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="$(MicrosoftExtensionsPackageVersion)" />
+    <PackageReference Include="Microsoft.Extensions.Hosting.WindowsServices" Version="$(MicrosoftExtensionsPackageVersion)" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="$(MicrosoftEntityFrameworkCorePackageVersion)" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="$(MicrosoftAspNetCorePackageVersion)" />
     <PackageReference Include="Services.Shared" Version="$(ServicesSharedVersion)" />

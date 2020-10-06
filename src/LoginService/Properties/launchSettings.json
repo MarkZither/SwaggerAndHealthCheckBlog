@@ -20,12 +20,13 @@
     "LoginService": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "hc",
+      "launchUrl": "weatherforecast",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
       "dotnetRunMessages": "true",
-      "applicationUrl": "http://localhost:1114;http://localhost:1115"
+      "applicationUrl": "http://localhost:1114;https://localhost:1115;https://localhost:1116",
+      "sslPort": 1115
     },
     "Docker": {
       "commandName": "Docker",
