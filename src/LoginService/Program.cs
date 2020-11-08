@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using NLog.Web;
+using Services.Shared.Extensions;
 
 namespace LoginService
 {
@@ -23,7 +24,12 @@ namespace LoginService
             try
             {
                 logger.Debug("init main");
-                CreateHostBuilder(args).Build().Run();
+                var host = CreateHostBuilder(args).Build();
+                if (!host.ValidateStartupOptions())
+                {
+                    return;
+                }
+                host.Run();
             }
             catch (Exception exception)
             {

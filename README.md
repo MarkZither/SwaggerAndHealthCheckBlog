@@ -29,6 +29,8 @@ Thumbprint                                Subject
 53B0542569C2580C46C34DBE824114D78D4E09FC  CN=localhost
 ```
 
+Copy this new certification into the `Trusted Root Certification Authorities` node to make the certification trusted in your browser on you local machine.
+
 Now we can use the Thumbprint as the certhash in the netsh sslcert command
 
 ``` cmd

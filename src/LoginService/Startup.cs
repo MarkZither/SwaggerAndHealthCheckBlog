@@ -8,12 +8,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
-using System.Linq;
-using System.Net;
 
 using Services.Shared.Extensions;
-using System;
-using Microsoft.Extensions.Diagnostics.HealthChecks;
+using LoginService.Extensions;
 
 namespace LoginService
 {
@@ -30,36 +27,9 @@ namespace LoginService
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().AddNewtonsoftJson();
-
-            var targetHost = "www.microsoft.com";
-            var targetHostIpAddresses = Dns.GetHostAddresses(targetHost).Select(h => h.ToString()).ToArray();
-
-            var targetHost2 = "localhost";
-            var targetHost2IpAddresses = Dns.GetHostAddresses(targetHost2).Select(h => h.ToString()).ToArray();
-            var maximumMemory = 104857600;
-
-            services.AddHealthChecks()
-                .AddDnsResolveHealthCheck(setup =>
-                {
-                    setup.ResolveHost(targetHost).To(targetHostIpAddresses)
-                    .ResolveHost(targetHost2).To(targetHost2IpAddresses);
-                }, tags: new string[] { "dns" }, name: "DNS Check")
-                .AddPingHealthCheck(setup =>
-                {
-                    setup.AddHost("127.0.0.1", 5000);
-                }, tags: new string[] { "ping" }, name: "Ping Check")
-                .AddTcpHealthCheck(setup =>
-                {
-                    setup.AddHost("127.0.0.1", 1116);
-                }, tags: new string[] { "tcp" }, name: "TCP port Check")
-                .AddPrivateMemoryHealthCheck(maximumMemory
-                , tags: new string[] { "privatememory" }, name: "PrivateMemory Check")
-                .AddWorkingSetHealthCheck(maximumMemory
-                , tags: new string[] { "workingset" }, name: "WorkingSet Check")
-                .AddVirtualMemorySizeHealthCheck(maximumMemory
-                , tags: new string[] { "virtualmemory" }, name: "VirtualMemory Check", failureStatus: HealthStatus.Degraded)
-                .AddSqlServer(Configuration.GetConnectionString("LoginServiceDb"), tags: new string[] { "sqlserver" })
-                .AddIdentityServer(new Uri("http://localhost:7777"), tags: new string[] { "idsvr" });
+            services.AddLoginServices();
+            services.AddLoginServiceHealthChecks(Configuration);
+            
             // Add a health check for a SQL Server database
             services.AddDbContext<AuthContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("LoginServiceDb")));
