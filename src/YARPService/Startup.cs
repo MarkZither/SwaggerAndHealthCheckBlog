@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using YARPService.Middlewares;
 
 namespace YARPService
 {
@@ -38,7 +39,9 @@ namespace YARPService
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapReverseProxy();
+                endpoints.MapReverseProxy(proxyPipeline => {
+                    proxyPipeline.UseJWTIssuerRouter();
+                });
             });
         }
     }

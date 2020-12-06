@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
@@ -15,11 +15,6 @@
     <PackageReference Include="NLog.Web.AspNetCore" Version="$(NLogWebVersion)" />
     <PackageReference Include="NLog" Version="$(NLogVersion)" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="$(SwashbuckleVersion)" />
-    <PackageReference Include="Microsoft.ReverseProxy" Version="1.0.0-preview.4.*" />
+    <PackageReference Include="Microsoft.ReverseProxy" Version="1.0.0-preview.7.*" />
   </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="logs\" />
-  </ItemGroup>
-
 </Project>

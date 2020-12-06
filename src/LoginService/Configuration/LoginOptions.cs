@@ -4,6 +4,7 @@ namespace LoginService.Configuration
 {
     public class LoginOptions
     {
+        public const string Login = "Login";
         public LoggingOptions Logging { get; set; }
         public string Urls { get; set; }
         public string ManagementPort { get; set; }

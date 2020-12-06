@@ -1,8 +1,10 @@
 using System;
 using System.IO;
+using System.Linq;
 using HealthChecks.UI.Configuration;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using NLog.Web;
@@ -18,18 +20,36 @@ namespace LoginService
             .AddJsonFile($"appsettings.{Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "Production"}.json", optional: true)
             .AddEnvironmentVariables()
             .Build();
-        public static void Main(string[] args)
+        public static int Main(string[] args)
         {
             var logger = NLog.Web.NLogBuilder.ConfigureNLog("nlog.config").GetCurrentClassLogger();
             try
             {
                 logger.Debug("init main");
+                var seed = args.Contains("/seed");
+                if (seed)
+                {
+                    args = args.Except(new[] { "/seed" }).ToArray();
+                }
+
                 var host = CreateHostBuilder(args).Build();
                 if (!host.ValidateStartupOptions())
                 {
-                    return;
+                    return 1;
                 }
+                if (seed)
+                {
+                    logger.Info("Seeding database...");
+                    var config = host.Services.GetRequiredService<IConfiguration>();
+                    var connectionString = config.GetConnectionString("DefaultConnection");
+                    SeedData.EnsureSeedData(connectionString);
+                    logger.Info("Done seeding database.");
+                    return 0;
+                }
+
+                logger.Info("Starting host...");
                 host.Run();
+                return 0;
             }
             catch (Exception exception)
             {

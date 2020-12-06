@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "TranslationConsole": {
+      "commandName": "Project",
+      "commandLineArgs": "--translationDirectory 'c:\\Translations\\sample1' -c \"Data Source=.\\MSSQLSERVER2017;Database=MyDB;Trusted_Connection=True;\" -u 1"
+    }
+  }
+}

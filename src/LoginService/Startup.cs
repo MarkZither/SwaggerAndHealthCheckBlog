@@ -11,6 +11,10 @@ using Microsoft.OpenApi.Models;
 
 using Services.Shared.Extensions;
 using LoginService.Extensions;
+using LoginService.Configuration;
+using LoginService.Data;
+using LoginService.Models;
+using Microsoft.AspNetCore.Identity;
 
 namespace LoginService
 {
@@ -29,10 +33,38 @@ namespace LoginService
             services.AddMvc().AddNewtonsoftJson();
             services.AddLoginServices();
             services.AddLoginServiceHealthChecks(Configuration);
-            
+
+            services.AddOptions<LoginOptions>()
+            .Bind(Configuration.GetSection(LoginOptions.Login))
+            .ValidateDataAnnotations();
+
             // Add a health check for a SQL Server database
             services.AddDbContext<AuthContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("LoginServiceDb")));
+            services.AddDbContext<ApplicationDbContext>(options =>
+                options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddIdentity<ApplicationUser, IdentityRole>()
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddDefaultTokenProviders();
+
+            var builder = services.AddIdentityServer(options =>
+            {
+                options.Events.RaiseErrorEvents = true;
+                options.Events.RaiseInformationEvents = true;
+                options.Events.RaiseFailureEvents = true;
+                options.Events.RaiseSuccessEvents = true;
+
+                // see https://identityserver4.readthedocs.io/en/latest/topics/resources.html
+                //options.EmitStaticAudienceClaim = true;
+            })
+            .AddInMemoryIdentityResources(Config.IdentityResources)
+            .AddInMemoryApiScopes(Config.ApiScopes)
+            .AddInMemoryClients(Config.Clients)
+            .AddAspNetIdentity<ApplicationUser>();
+
+            // not recommended for production - you need to store your key material somewhere secure
+            builder.AddDeveloperSigningCredential();
 
             services.AddOptions();
 
@@ -53,6 +85,7 @@ namespace LoginService
             }
 
             app.UseHttpsRedirection();
+            app.UseStaticFiles();
 
             app.UseRouting();
 
@@ -63,6 +96,7 @@ namespace LoginService
                 c.SwaggerEndpoint("v1/swagger.json", "Login Service API V1");
             });
 
+            app.UseIdentityServer();
             app.UseAuthorization();
 
             // HealthCheck middleware
@@ -74,7 +108,7 @@ namespace LoginService
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllers();
+                endpoints.MapDefaultControllerRoute();
                 endpoints.MapHealthChecks("/health").RequireHost($"*:{Configuration["ManagementPort"]}");
             });
         }
