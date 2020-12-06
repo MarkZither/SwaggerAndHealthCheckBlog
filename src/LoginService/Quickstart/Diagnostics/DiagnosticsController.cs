@@ -4,7 +4,9 @@
 
 using System.Linq;
 using System.Threading.Tasks;
+using IdentityServer4;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -24,6 +26,19 @@ namespace LoginService.Quickstart.UI
 
             var model = new DiagnosticsViewModel(await HttpContext.AuthenticateAsync());
             return View(model);
+        }
+
+        [Authorize(IdentityServerConstants.LocalApi.PolicyName)]
+        public async Task<IActionResult> IndexApi()
+        {
+            var localAddresses = new string[] { "127.0.0.1", "::1", HttpContext.Connection.LocalIpAddress.ToString() };
+            if (!localAddresses.Contains(HttpContext.Connection.RemoteIpAddress.ToString()))
+            {
+                return NotFound();
+            }
+            
+            var model = new DiagnosticsViewModel(await HttpContext.AuthenticateAsync(JwtBearerDefaults.AuthenticationScheme));
+            return Ok(model);
         }
     }
 }

@@ -1,0 +1,19 @@
+@baseUrl = https://localhost:1142/loginservice
+
+# @name login
+POST https://localhost:1116/connect/token HTTP/1.1
+content-type: application/x-www-form-urlencoded
+Accept: application/json
+
+grant_type=client_credentials
+&client_id=m2m.client
+&client_secret=511536EF-F270-4058-80CA-1C89C192F69A
+&scope=scope1 IdentityServerApi
+
+###
+@authToken = {{login.response.body.access_token}}
+
+# @name Diagnostics
+POST {{baseUrl}}/Diagnostics/IndexApi HTTP/1.1
+Authorization: Bearer {{authToken}}
+Content-Type: application/json

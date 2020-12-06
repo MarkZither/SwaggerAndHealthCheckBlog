@@ -25,7 +25,7 @@ namespace LoginService.Quickstart.UI
                 Clients = JsonConvert.DeserializeObject<string[]>(value);
             }
         }
-
+        [JsonIgnore]
         public AuthenticateResult AuthenticateResult { get; }
         public IEnumerable<string> Clients { get; } = new List<string>();
     }

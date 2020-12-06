@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
@@ -28,7 +30,15 @@ namespace YARPService.Middlewares
         {
             var proxyFeature = context.Features.Get<IReverseProxyFeature>();
             var destinations = proxyFeature.AvailableDestinations;
+            var jwt = context.Request.Headers["Authorization"];
+            if(jwt.Count == 0)
+            {
+                return _next(context);
+            }
 
+            var handler = new JwtSecurityTokenHandler();
+            var token = handler.ReadJwtToken(jwt.ToString().Replace("Bearer ", string.Empty));
+            var issuer = token.Issuer;
             /*var loadBalancingOptions = proxyFeature.ClusterConfig.LoadBalancingOptions;
 
             var destination = _loadBalancer.PickDestination(destinations, in loadBalancingOptions);
@@ -41,16 +51,16 @@ namespace YARPService.Middlewares
                 return Task.CompletedTask;
             }
             */
-            var destination = PickJWTIssuerDestination(destinations);
+            var destination = PickJWTIssuerDestination(destinations.Where(x => x.Config.Address.TrimEnd('/').Equals(issuer.TrimEnd('/'), StringComparison.Ordinal)));
             proxyFeature.AvailableDestinations = destination;
             
             return _next(context);
         }
 
         public DestinationInfo PickJWTIssuerDestination(
-            IReadOnlyList<DestinationInfo> endpoints)
+            IEnumerable<DestinationInfo> endpoints)
         {
-            var endpointCount = endpoints.Count;
+            var endpointCount = endpoints.Count();
             if (endpointCount == 0)
             {
                 return null;
@@ -58,9 +68,9 @@ namespace YARPService.Middlewares
 
             if (endpointCount == 1)
             {
-                return endpoints[0];
+                return endpoints.First();
             }
-            return endpoints[0];
+            return endpoints.First();
         }
 
 

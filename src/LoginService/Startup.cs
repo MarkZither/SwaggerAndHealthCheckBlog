@@ -15,6 +15,7 @@ using LoginService.Configuration;
 using LoginService.Data;
 using LoginService.Models;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace LoginService
 {
@@ -54,17 +55,27 @@ namespace LoginService
                 options.Events.RaiseInformationEvents = true;
                 options.Events.RaiseFailureEvents = true;
                 options.Events.RaiseSuccessEvents = true;
-
+                
                 // see https://identityserver4.readthedocs.io/en/latest/topics/resources.html
-                //options.EmitStaticAudienceClaim = true;
+                options.EmitStaticAudienceClaim = true;
             })
             .AddInMemoryIdentityResources(Config.IdentityResources)
             .AddInMemoryApiScopes(Config.ApiScopes)
             .AddInMemoryClients(Config.Clients)
             .AddAspNetIdentity<ApplicationUser>();
 
+            services.AddLocalApiAuthentication();
+
             // not recommended for production - you need to store your key material somewhere secure
             builder.AddDeveloperSigningCredential();
+
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, options =>
+                {
+                    options.Authority = "https://localhost:1116";
+                    options.Audience = "https://localhost:1116/resources";
+                    options.TokenValidationParameters.ValidTypes = new[] { "at+jwt" };
+                });
 
             services.AddOptions();
 

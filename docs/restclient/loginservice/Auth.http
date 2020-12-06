@@ -1,9 +1,19 @@
-POST https://localhost:1116/connect/token HTTP/1.1
-content-type: application/x-www-form-urlencoded
+@baseUrl = https://localhost:1116
 
-{
-    "grant_type": "cli3ent_credentials",
-    "client_id": "m32m.client",
-    "client_secret": "511536EF-F270-4058-80CA-1C89C192F69A",
-    "scope": "scope1"
-}
+# @name login
+POST {{baseUrl}}/connect/token HTTP/1.1
+content-type: application/x-www-form-urlencoded
+Accept: application/json
+
+grant_type=client_credentials
+&client_id=m2m.client
+&client_secret=511536EF-F270-4058-80CA-1C89C192F69A
+&scope=scope1 IdentityServerApi
+
+###
+@authToken = {{login.response.body.access_token}}
+
+# @name Diagnostics
+POST {{baseUrl}}/Diagnostics/IndexApi HTTP/1.1
+Authorization: Bearer {{authToken}}
+Content-Type: application/json
