@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.ComponentModel;
 using System.Linq;
 using Nuke.Common.Tooling;
@@ -9,9 +9,19 @@ using Nuke.Common.Tooling;
 [TypeConverter(typeof(TypeConverter<Configuration>))]
 public class Configuration : Enumeration
 {
+    /// <summary>
+    /// debug build config
+    /// </summary>
     public static Configuration Debug = new Configuration { Value = nameof(Debug) };
+    /// <summary>
+    /// release build config
+    /// </summary>
     public static Configuration Release = new Configuration { Value = nameof(Release) };
 
+    /// <summary>
+    /// string represerntation of the enum
+    /// </summary>
+    /// <param name="configuration"></param>
     public static implicit operator string(Configuration configuration)
     {
         return configuration.Value;

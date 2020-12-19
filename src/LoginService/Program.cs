@@ -12,7 +12,7 @@ using Services.Shared.Extensions;
 
 namespace LoginService
 {
-    public class Program
+    public static class Program
     {
         public static IConfiguration Configuration { get; } = new ConfigurationBuilder()
             .SetBasePath(AppContext.BaseDirectory)
@@ -67,13 +67,17 @@ namespace LoginService
         public static IHostBuilder CreateHostBuilder(string[] args) =>
         Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder => {
-                    webBuilder.UseHttpSys(
-                        httpSysOptions => {
-                            httpSysOptions.Http503Verbosity = Microsoft.AspNetCore.Server.HttpSys.Http503VerbosityLevel.Basic;
-                            httpSysOptions.Authentication.AllowAnonymous = true;
-                            httpSysOptions.Authentication.AutomaticAuthentication = true;
+                    if (OperatingSystem.IsWindows())
+                    {
+                        webBuilder.UseHttpSys(
+                            httpSysOptions =>
+                            {
+                                httpSysOptions.Http503Verbosity = Microsoft.AspNetCore.Server.HttpSys.Http503VerbosityLevel.Basic;
+                                httpSysOptions.Authentication.AllowAnonymous = true;
+                                httpSysOptions.Authentication.AutomaticAuthentication = true;
                             }
-                        ) ;
+                            );
+                    }
                     webBuilder.UseContentRoot(Directory.GetCurrentDirectory());
                     webBuilder.UseIIS();
                     webBuilder.UseIISIntegration();

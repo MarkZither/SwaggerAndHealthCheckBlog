@@ -14,9 +14,9 @@ using System.Collections.Generic;
 
 namespace TranslationConsole
 {
-    class Program
+    public class Program
     {
-        static async Task Main(string[] args) => await BuildCommandLine()
+        public static async Task Main(string[] args) => await BuildCommandLine()
                     .UseHost(_ => Host.CreateDefaultBuilder(),
                         host =>
                         {

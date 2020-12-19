@@ -78,11 +78,13 @@ using static Nuke.Common.Tools.DotNet.DotNetTasks;
     ExcludedTargets = new[] { nameof(Clean), nameof(Coverage), nameof(SignPackages) })]
 partial class Build : NukeBuild
 {
+    /// <summary>
     /// Support plugins are available for:
     ///   - JetBrains ReSharper        https://nuke.build/resharper
     ///   - JetBrains Rider            https://nuke.build/rider
     ///   - Microsoft VisualStudio     https://nuke.build/visualstudio
     ///   - Microsoft VSCode           https://nuke.build/vscode
+    /// </summary>
 
     public static int Main() => Execute<Build>(x => x.Compile);
 
