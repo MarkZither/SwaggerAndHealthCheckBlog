@@ -24,6 +24,7 @@ namespace LoginService
         public static IEnumerable<ApiScope> ApiScopes =>
             new ApiScope[]
             {
+                new ApiScope("api1"),
                 new ApiScope("scope1"),
                 new ApiScope("scope2"),
                 new ApiScope("IdentityServerApi"),

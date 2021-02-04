@@ -28,6 +28,7 @@ namespace YARPService.Controllers
         [HttpGet]
         public string Get()
         {
+            _logger.LogWarning(EventIds.TestWarning, "Test Test");
             return "Ok";
         }
     }

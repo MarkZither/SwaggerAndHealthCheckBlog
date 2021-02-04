@@ -28,6 +28,7 @@ namespace YARPService.Middlewares
 
         public Task Invoke(HttpContext context)
         {
+            _logger.LogWarning(EventIds.TestWarning, "Test Test");
             var proxyFeature = context.Features.Get<IReverseProxyFeature>();
             var destinations = proxyFeature.AvailableDestinations;
             var jwt = context.Request.Headers["Authorization"];

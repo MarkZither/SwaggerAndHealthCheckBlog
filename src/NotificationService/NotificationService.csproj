@@ -18,7 +18,7 @@
     <PackageReference Include="Services.Shared" Version="$(ServicesSharedVersion)" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="$(MicrosoftEntityFrameworkCorePackageVersion)" />
     <PackageReference Include="Microsoft.Extensions.Hosting.WindowsServices" Version="$(MicrosoftExtensionsPackageVersion)" />
-    <PackageReference Include="MailKit" Version="2.5.2" />
+    <PackageReference Include="MailKit" Version="2.10.1" />
     <PackageReference Include="NLog.Web.AspNetCore" Version="$(NLogWebVersion)" />
     <PackageReference Include="NLog" Version="$(NLogVersion)" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="$(SwashbuckleVersion)" />
