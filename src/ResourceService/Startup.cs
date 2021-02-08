@@ -1,3 +1,4 @@
+using Finbuckle.MultiTenant;
 using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
@@ -56,6 +57,11 @@ namespace ResourceService
             // Add a health check for a SQL Server database
             services.AddDbContext<ResourceDataContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("ResourceDb")));
+
+            // Multi Tenant Services
+            services.AddMultiTenant<TenantInfo>()
+            .WithRouteStrategy()
+            .WithConfigurationStore();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -70,6 +76,10 @@ namespace ResourceService
 
             app.UseRouting();
 
+            app.UseMultiTenant();   // Before UseAuthentication and UseMvc!!
+                                    //https://www.finbuckle.com/MultiTenant/Docs/ConfigurationAndUsage#usemultitenant
+                                    // https://www.finbuckle.com/MultiTenant/Docs/GettingStarted
+
             app.UseAuthorization();
 
             // HealthCheck middleware
@@ -81,7 +91,7 @@ namespace ResourceService
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllers();
+                endpoints.MapControllerRoute("default", "{__tenant__=}/{controller=Home}/{action=Index}");
                 endpoints.MapHealthChecks("/health").RequireHost($"*:{Configuration["ManagementPort"]}");
             });
         }
