@@ -1,0 +1,12 @@
+# tye application configuration file
+# read all about it at https://github.com/dotnet/tye
+name: SwaggerAndHealthCheckBlog
+services:
+- name: LoggingService
+  project: src/LoggingService/LoggingService.csproj
+  bindings:
+  - port: 1121
+- name: LoginService
+  project: src/LoginService/LoginService.csproj
+  bindings:
+    - port: 1115
