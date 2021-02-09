@@ -35,6 +35,7 @@ namespace ResourceService
             var maximumMemory = 104857600;
 
             services.AddHealthChecks()
+                .AddDbContextCheck<ResourceDataContext>()
                 .AddDnsResolveHealthCheck(setup =>
                 {
                     setup.ResolveHost(targetHost).To(targetHostIpAddresses)
