@@ -1,21 +1,20 @@
 using HealthChecks.UI.Client;
+using LoginService.Configuration;
+using LoginService.Data;
 using LoginService.DataAccess;
+using LoginService.Extensions;
+using LoginService.Models;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
-
 using Services.Shared.Extensions;
-using LoginService.Extensions;
-using LoginService.Configuration;
-using LoginService.Data;
-using LoginService.Models;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace LoginService
 {
@@ -55,7 +54,7 @@ namespace LoginService
                 options.Events.RaiseInformationEvents = true;
                 options.Events.RaiseFailureEvents = true;
                 options.Events.RaiseSuccessEvents = true;
-                
+
                 // see https://identityserver4.readthedocs.io/en/latest/topics/resources.html
                 options.EmitStaticAudienceClaim = true;
             })

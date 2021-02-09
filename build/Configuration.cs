@@ -1,7 +1,5 @@
-using System;
-using System.ComponentModel;
-using System.Linq;
 using Nuke.Common.Tooling;
+using System.ComponentModel;
 
 /// <summary>
 /// https://github.com/nuke-build/nuke/commit/c653e06c4f4399475ca550e0507470325ee169c1

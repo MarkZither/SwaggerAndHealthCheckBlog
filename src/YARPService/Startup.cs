@@ -39,7 +39,8 @@ namespace YARPService
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapReverseProxy(proxyPipeline => {
+                endpoints.MapReverseProxy(proxyPipeline =>
+                {
                     proxyPipeline.UseJWTIssuerRouter();
                 });
             });

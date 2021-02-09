@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using Nuke.Common;
 using Nuke.Common.CI;
 using Nuke.Common.CI.AppVeyor;
@@ -16,8 +13,10 @@ using Nuke.Common.Tools.DotCover;
 using Nuke.Common.Tools.DotNet;
 using Nuke.Common.Tools.GitVersion;
 using Nuke.Common.Utilities.Collections;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using static Nuke.Common.ChangeLog.ChangelogTasks;
-using static Nuke.Common.EnvironmentInfo;
 using static Nuke.Common.IO.FileSystemTasks;
 using static Nuke.Common.IO.PathConstruction;
 using static Nuke.Common.Tools.DotNet.DotNetTasks;
@@ -32,18 +31,18 @@ using static Nuke.Common.Tools.DotNet.DotNetTasks;
     GitHubActionsImage.MacOsLatest,
     OnPushBranches = new[] { TrunkBranch, ReleaseBranchPrefix + "/*" },
     InvokedTargets = new[] { nameof(Publish) }
-    //ImportGitHubTokenAs = nameof(GitHubToken),
-    //ImportSecrets =
-    //    new[]
-    //    {
-            //nameof(NuGetApiKey),
-            //nameof(SlackWebhook),
-            //nameof(GitterAuthToken),
-            //nameof(TwitterConsumerKey),
-            //nameof(TwitterConsumerSecret),
-            //nameof(TwitterAccessToken),
-            //nameof(TwitterAccessTokenSecret)
-    //    }
+        //ImportGitHubTokenAs = nameof(GitHubToken),
+        //ImportSecrets =
+        //    new[]
+        //    {
+        //nameof(NuGetApiKey),
+        //nameof(SlackWebhook),
+        //nameof(GitterAuthToken),
+        //nameof(TwitterConsumerKey),
+        //nameof(TwitterConsumerSecret),
+        //nameof(TwitterAccessToken),
+        //nameof(TwitterAccessTokenSecret)
+        //    }
         )]
 [TeamCity(
     TeamCityAgentPlatform.Unix,
@@ -85,7 +84,6 @@ partial class Build : NukeBuild
     ///   - Microsoft VisualStudio     https://nuke.build/visualstudio
     ///   - Microsoft VSCode           https://nuke.build/vscode
     /// </summary>
-
     public static int Main() => Execute<Build>(x => x.Compile);
 
     [Parameter("Configuration to build - Default is 'Debug' (local) or 'Release' (server)")]

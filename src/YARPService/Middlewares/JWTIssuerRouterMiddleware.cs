@@ -1,20 +1,20 @@
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Logging;
+using Microsoft.ReverseProxy.Middleware;
+using Microsoft.ReverseProxy.RuntimeModel;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Logging;
-using Microsoft.ReverseProxy.Middleware;
-using Microsoft.ReverseProxy.RuntimeModel;
-using Microsoft.ReverseProxy.Service.Proxy;
 
 namespace YARPService.Middlewares
 {
     /// <summary>
     /// Load balances across the available destinations.
     /// </summary>
-    public class JWTIssuerRouterMiddleware {
+    public class JWTIssuerRouterMiddleware
+    {
         private readonly ILogger _logger;
         private readonly RequestDelegate _next;
 
@@ -32,7 +32,7 @@ namespace YARPService.Middlewares
             var proxyFeature = context.Features.Get<IReverseProxyFeature>();
             var destinations = proxyFeature.AvailableDestinations;
             var jwt = context.Request.Headers["Authorization"];
-            if(jwt.Count == 0)
+            if (jwt.Count == 0)
             {
                 return _next(context);
             }
@@ -54,7 +54,7 @@ namespace YARPService.Middlewares
             */
             var destination = PickJWTIssuerDestination(destinations.Where(x => x.Config.Address.TrimEnd('/').Equals(issuer.TrimEnd('/'), StringComparison.Ordinal)));
             proxyFeature.AvailableDestinations = destination;
-            
+
             return _next(context);
         }
 
@@ -73,7 +73,6 @@ namespace YARPService.Middlewares
             }
             return endpoints.First();
         }
-
 
         private static class Log
         {

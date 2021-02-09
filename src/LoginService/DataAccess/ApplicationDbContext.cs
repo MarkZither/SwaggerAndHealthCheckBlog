@@ -1,6 +1,6 @@
+using LoginService.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using LoginService.Models;
 
 namespace LoginService.Data
 {

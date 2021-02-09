@@ -1,5 +1,3 @@
-using System.IO;
-using System.Linq;
 using JetBrains.Annotations;
 using Nuke.Common;
 using Nuke.Common.Git;
@@ -7,6 +5,7 @@ using Nuke.Common.Tooling;
 using Nuke.Common.Tools.GitHub;
 using Nuke.Common.Tools.GitVersion;
 using Octokit;
+using System.IO;
 using static Nuke.Common.ChangeLog.ChangelogTasks;
 using static Nuke.Common.ControlFlow;
 using static Nuke.Common.Tools.Git.GitTasks;

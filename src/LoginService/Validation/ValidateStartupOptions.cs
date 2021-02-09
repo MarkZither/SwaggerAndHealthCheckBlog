@@ -1,8 +1,8 @@
-using System;
 using LoginService.Configuration;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Services.Shared.Extensions;
+using System;
 
 namespace LoginService.Validation
 {

@@ -1,7 +1,6 @@
-using System;
+using Microsoft.Extensions.Options;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using Microsoft.Extensions.Options;
 
 namespace LoginService.Validation
 {

@@ -1,5 +1,3 @@
-using System.ComponentModel.DataAnnotations;
-
 namespace LoginService.Configuration
 {
     public class LoginOptions
@@ -62,5 +60,4 @@ namespace LoginService.Configuration
     {
         public string ServiceAddress { get; set; }
     }
-
 }

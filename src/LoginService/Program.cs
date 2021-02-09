@@ -1,7 +1,3 @@
-using System;
-using System.IO;
-using System.Linq;
-using HealthChecks.UI.Configuration;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -9,6 +5,9 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using NLog.Web;
 using Services.Shared.Extensions;
+using System;
+using System.IO;
+using System.Linq;
 
 namespace LoginService
 {
@@ -66,7 +65,8 @@ namespace LoginService
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
         Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder => {
+                .ConfigureWebHostDefaults(webBuilder =>
+                {
                     if (OperatingSystem.IsWindows())
                     {
                         webBuilder.UseHttpSys(
@@ -83,7 +83,8 @@ namespace LoginService
                     webBuilder.UseIISIntegration();
                     webBuilder.UseStartup<Startup>();
                 })
-                .ConfigureAppConfiguration((hostingContext, config) => {
+                .ConfigureAppConfiguration((hostingContext, config) =>
+                {
                     config.Sources.Clear();
                     config.AddConfiguration(Configuration);
                     if (args.Length > 0)
@@ -92,7 +93,8 @@ namespace LoginService
                     }
                 })
                 .UseWindowsService()
-                .ConfigureLogging(logging => {
+                .ConfigureLogging(logging =>
+                {
                     logging.ClearProviders();
                     logging.SetMinimumLevel(Microsoft.Extensions.Logging.LogLevel.Trace);
                 })

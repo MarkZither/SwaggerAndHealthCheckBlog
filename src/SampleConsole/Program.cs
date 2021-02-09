@@ -1,16 +1,14 @@
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+using System.Collections.Generic;
 using System.CommandLine;
 using System.CommandLine.Builder;
 using System.CommandLine.Hosting;
 using System.CommandLine.Invocation;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using System.CommandLine.Parsing;
 using System.Threading.Tasks;
-using Microsoft.Extensions.DependencyInjection;
-using System.Configuration;
-using Microsoft.Extensions.Configuration;
-using System.Linq;
-using System.Collections.Generic;
 
 namespace TranslationConsole
 {

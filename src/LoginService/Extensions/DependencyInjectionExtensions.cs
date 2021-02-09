@@ -1,16 +1,14 @@
-using System;
-using System.Net;
-using System.Net.Http;
-using System.Reflection;
 using LoginService.Configuration;
 using LoginService.Validation;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
+using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Options;
 using Services.Shared.Extensions;
-using Microsoft.Extensions.Diagnostics.HealthChecks;
+using System;
 using System.Linq;
+using System.Net;
 
 namespace LoginService.Extensions
 {

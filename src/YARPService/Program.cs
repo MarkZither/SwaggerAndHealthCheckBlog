@@ -1,11 +1,10 @@
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using System;
-using Serilog;
 using Microsoft.Extensions.Configuration;
-using System.IO;
+using Microsoft.Extensions.Hosting;
+using Serilog;
 using Serilog.Events;
+using System;
+using System.IO;
 
 namespace YARPService
 {
@@ -21,7 +20,7 @@ namespace YARPService
 
         public static void Main(string[] args)
         {
-            ///https://github.com/serilog/serilog-settings-configuration
+            //https://github.com/serilog/serilog-settings-configuration
             Log.Logger = new LoggerConfiguration()
             .ReadFrom.Configuration(Configuration)
             .MinimumLevel.Debug()
@@ -56,7 +55,7 @@ namespace YARPService
                     webBuilder.UseStartup<Startup>();
                 })
                 //.ConfigureLogging(logging => {
-                    //logging.ClearProviders();
+                //logging.ClearProviders();
                 //    logging.SetMinimumLevel(Microsoft.Extensions.Logging.LogLevel.Trace);
                 //})
                 .UseSerilog((hostingContext, loggerConfiguration) =>
