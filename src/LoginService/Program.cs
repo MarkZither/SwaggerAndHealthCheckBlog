@@ -1,3 +1,4 @@
+using App.Metrics.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -65,6 +66,7 @@ namespace LoginService
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
         Host.CreateDefaultBuilder(args)
+                .UseMetrics()
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     if (OperatingSystem.IsWindows())

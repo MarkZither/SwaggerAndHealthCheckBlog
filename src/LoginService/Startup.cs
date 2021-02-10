@@ -15,6 +15,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Services.Shared.Extensions;
+using App.Metrics;
+using Microsoft.AspNetCore.Mvc;
 
 namespace LoginService
 {
@@ -30,7 +32,7 @@ namespace LoginService
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().AddNewtonsoftJson();
+            services.AddMvc().AddMetrics().AddNewtonsoftJson();
             services.AddLoginServices();
             services.AddLoginServiceHealthChecks(Configuration);
 
