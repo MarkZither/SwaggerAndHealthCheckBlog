@@ -9,6 +9,10 @@
   
   <ItemGroup>
     <PackageReference Include="App.Metrics.AspNetCore.Mvc" Version="4.1.0" />
+    <PackageReference Include="App.Metrics.AspNetCore.Tracking" Version="4.1.0" />
+    <PackageReference Include="App.Metrics.GrafanaCloudHostedMetrics" Version="4.1.0" />
+    <PackageReference Include="App.Metrics.InfluxDB" Version="4.1.0" />
+    <PackageReference Include="App.Metrics.Reporting.Console" Version="4.1.0" />
     <PackageReference Include="Finbuckle.MultiTenant.AspNetCore" Version="6.1.0" />
     <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore" Version="$(MicrosoftExtensionsPackageVersion)" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="$(VSContainersVersion)" />

@@ -16,7 +16,10 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Services.Shared.Extensions;
 using App.Metrics;
+using App.Metrics.Formatters.Json;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using App.Metrics.Filtering;
 
 namespace LoginService
 {
@@ -32,7 +35,20 @@ namespace LoginService
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().AddMetrics().AddNewtonsoftJson();
+            var filter = new MetricsFilter().WhereType(MetricType.Timer);
+            var metrics = new MetricsBuilder()
+                .Report.ToConsole(
+                    options => {
+                        options.FlushInterval = TimeSpan.FromSeconds(5);
+                        options.Filter = filter;
+                        options.MetricsOutputFormatter = new MetricsJsonOutputFormatter();
+                    })
+                .Build();
+            services.AddMvc().AddNewtonsoftJson().AddMetrics();
+
+            //services.AddAppMetricsSystemMetricsCollector();
+            //services.AddAppMetricsGcEventsMetricsCollector();
+
             services.AddLoginServices();
             services.AddLoginServiceHealthChecks(Configuration);
 
