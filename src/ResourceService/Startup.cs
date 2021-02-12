@@ -7,7 +7,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using ResourceService.Configuration;
 using ResourceService.DataAccess;
+using ResourceService.Extensions;
+using System;
+using System.ComponentModel;
 using System.Linq;
 using System.Net;
 
@@ -27,6 +31,14 @@ namespace ResourceService
         {
             services.AddControllers();
 
+            services.AddOptions<ResourceOptions>()
+                .Bind(Configuration.GetSection(ResourceOptions.Resource))
+                .ValidateDataAnnotations();
+
+            services.AddOptions();
+
+            services.AddResourceServices();
+
             var targetHost = "www.microsoft.com";
             var targetHostIpAddresses = Dns.GetHostAddresses(targetHost).Select(h => h.ToString()).ToArray();
 
@@ -36,6 +48,7 @@ namespace ResourceService
 
             services.AddHealthChecks()
                 .AddDbContextCheck<ResourceDataContext>()
+                .AddIdentityServer(new Uri("http://localhost:1115"), "test")
                 .AddDnsResolveHealthCheck(setup =>
                 {
                     setup.ResolveHost(targetHost).To(targetHostIpAddresses)
@@ -58,7 +71,7 @@ namespace ResourceService
             // Add a health check for a SQL Server database
             services.AddDbContext<ResourceDataContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("ResourceDb")));
-
+            
             // Multi Tenant Services
             services.AddMultiTenant<TenantInfo>()
             .WithRouteStrategy()

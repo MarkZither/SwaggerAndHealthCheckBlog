@@ -1,5 +1,5 @@
-using LoginService.Configuration;
-using LoginService.Validation;
+using ResourceService.Configuration;
+using ResourceService.Validation;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
@@ -11,7 +11,7 @@ using System;
 using System.Linq;
 using System.Net;
 
-namespace LoginService.Extensions
+namespace ResourceService.Extensions
 {
     public static partial class DependencyInjectionExtensions
     {
@@ -25,12 +25,12 @@ namespace LoginService.Extensions
         /// If null, the root configuration will be used to configure the options.
         /// </param>
         /// <returns>The dependency injection container.</returns>
-        public static IServiceCollection AddLoginServiceOptions<TOptions>(
+        public static IServiceCollection AddResourceServiceOptions<TOptions>(
             this IServiceCollection services,
             string key = null)
             where TOptions : class
         {
-            services.AddSingleton<IValidateOptions<TOptions>>(new ValidateLoginOptions<TOptions>(key));
+            services.AddSingleton<IValidateOptions<TOptions>>(new ValidateResourceOptions<TOptions>(key));
             services.AddSingleton<IConfigureOptions<TOptions>>(provider =>
             {
                 var config = provider.GetRequiredService<IConfiguration>();
@@ -47,14 +47,10 @@ namespace LoginService.Extensions
 
         private static void AddConfiguration(this IServiceCollection services)
         {
-            services.AddLoginServiceOptions<LoginOptions>();
-            services.AddLoginServiceOptions<AccessControlOptions>(nameof(LoginOptions.AccessControlSettings));
-            services.AddLoginServiceOptions<AuthPasswordValidationOptions>(nameof(LoginOptions.AuthPasswordValidationOptions));
-            services.AddLoginServiceOptions<PasswordValidationOptions>(nameof(LoginOptions.PasswordValidationOptions));
-            services.AddLoginServiceOptions<SigningCertificateOptions>(nameof(LoginOptions.SigningCertificate));
+            services.AddResourceServiceOptions<ResourceOptions>();
         }
 
-        public static IServiceCollection AddLoginServices(this IServiceCollection services)
+        public static IServiceCollection AddResourceServices(this IServiceCollection services)
         {
             services.AddConfiguration();
             services.TryAddSingleton<IValidateStartupOptions, ValidateStartupOptions>();
@@ -91,7 +87,6 @@ namespace LoginService.Extensions
                 , tags: new string[] { "workingset" }, name: "WorkingSet Check")
                 .AddVirtualMemorySizeHealthCheck(maximumMemory
                 , tags: new string[] { "virtualmemory" }, name: "VirtualMemory Check", failureStatus: HealthStatus.Degraded)
-                .AddSqlServer(config.GetConnectionString("LoginServiceDb"), tags: new string[] { "sqlserver" })
                 .AddIdentityServer(new Uri("http://localhost:7777"), tags: new string[] { "idsvr" });
 
             return services;

@@ -38,12 +38,20 @@ namespace LoginService
             var filter = new MetricsFilter().WhereType(MetricType.Timer);
             var metrics = new MetricsBuilder()
                 .Report.ToConsole(
-                    options => {
+                    options =>
+                    {
                         options.FlushInterval = TimeSpan.FromSeconds(5);
                         options.Filter = filter;
                         options.MetricsOutputFormatter = new MetricsJsonOutputFormatter();
                     })
+                .Report.ToHostedMetrics(
+                "https://graphite-us-central1.grafana.net/metrics",
+                //"42196:eyJrIjoiNzU1OTYwOWU0ZjAyYzlhOWYyYzE1YzM3MDg2ZTEwYWI4YWU4OTUyYiIsIm4iOiJNZXRyaWNzUHVibGlzaGVyIiwiaWQiOjQ2NDIwNn0="
+                "42196:eyJrIjoiZTJiNjJjNGYwYjRhMTYwZTM2MTEwZDJlMGEzNTIwNWQ5MWQ1YjQ2MCIsIm4iOiJDbG91ZEdyYXBoaXRlIiwiaWQiOjQ2NDIwNn0="
+                )
                 .Build();
+
+
             services.AddMvc().AddNewtonsoftJson().AddMetrics();
 
             //services.AddAppMetricsSystemMetricsCollector();

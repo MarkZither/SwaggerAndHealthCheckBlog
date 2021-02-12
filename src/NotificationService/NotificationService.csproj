@@ -21,7 +21,7 @@
     <PackageReference Include="AspNetCore.HealthChecks.Network" Version="$(AspNetCoreHealthChecksVersion)" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson " Version="$(MicrosoftAspNetCorePackageVersion)" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="$(MicrosoftEntityFrameworkCorePackageVersion)" />
-    <PackageReference Include="Services.Shared" Version="$(ServicesSharedVersion)" />
+    <PackageReference Include="Services.Shared" Version="1.1.2-prerelease" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="$(MicrosoftEntityFrameworkCorePackageVersion)" />
     <PackageReference Include="Microsoft.Extensions.Hosting.WindowsServices" Version="$(MicrosoftExtensionsPackageVersion)" />
     <PackageReference Include="MailKit" Version="2.10.1" />
