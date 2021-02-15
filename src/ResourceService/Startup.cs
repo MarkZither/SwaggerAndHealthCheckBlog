@@ -30,6 +30,8 @@ namespace ResourceService
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            var resourceOptions = new ResourceOptions();
+            Configuration.Bind(resourceOptions);
 
             services.AddOptions<ResourceOptions>()
                 .Bind(Configuration.GetSection(ResourceOptions.Resource))
@@ -48,7 +50,7 @@ namespace ResourceService
 
             services.AddHealthChecks()
                 .AddDbContextCheck<ResourceDataContext>()
-                .AddIdentityServer(new Uri("http://localhost:1115"), "test")
+                .AddIdentityServer(new Uri(resourceOptions.IdentityServerUrl), "test IdSrv", tags: new string[] { "IdSrv" })
                 .AddDnsResolveHealthCheck(setup =>
                 {
                     setup.ResolveHost(targetHost).To(targetHostIpAddresses)
