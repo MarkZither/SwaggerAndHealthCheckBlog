@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: src-loginservice
+  labels:
+    app: src-loginservice
+spec:
+  clusterIP: None
+  selector:
+    app: src-loginservice
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: src-loginservice
+  labels:
+    app: src-loginservice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: src-loginservice
+  template:
+    metadata:
+      labels:
+        app: src-loginservice
+    spec:
+      containers:
+      - name: src-loginservice
+        image: src-loginservice

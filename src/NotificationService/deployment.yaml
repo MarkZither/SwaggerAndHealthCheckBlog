@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: src-notificationservice
+  labels:
+    app: src-notificationservice
+spec:
+  clusterIP: None
+  selector:
+    app: src-notificationservice
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: src-notificationservice
+  labels:
+    app: src-notificationservice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: src-notificationservice
+  template:
+    metadata:
+      labels:
+        app: src-notificationservice
+    spec:
+      containers:
+      - name: src-notificationservice
+        image: src-notificationservice

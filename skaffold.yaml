@@ -1,0 +1,48 @@
+apiVersion: skaffold/v2beta12
+kind: Config
+metadata:
+  name: swaggerandhealthcheckblog
+build:
+  artifacts:
+  - image: src-loggingservice
+    context: src/LoggingService
+    docker:
+      dockerfile: Dockerfile
+  - image: src-loginservice
+    context: src/LoginService
+    docker:
+      dockerfile: Dockerfile
+  - image: src-loginservice
+    context: src/LoginService
+    docker:
+      dockerfile: Dockerfile.original
+  - image: src-monitoringservice
+    context: src/MonitoringService
+    docker:
+      dockerfile: Dockerfile
+  - image: src-notificationservice
+    context: src/NotificationService
+    docker:
+      dockerfile: Dockerfile
+  - image: src-resourceservice
+    context: src/ResourceService
+    docker:
+      dockerfile: Dockerfile
+  - image: src-yarpservice
+    context: src/YARPService
+    docker:
+      dockerfile: Dockerfile
+deploy:
+  kubectl:
+    manifests:
+    - src\loggingservice\deployment.yaml
+    - src\loginservice\deployment.yaml
+    - src\loginservice\deployment.yaml
+    - src\monitoringservice\deployment.yaml
+    - src\notificationservice\deployment.yaml
+    - src\resourceservice\deployment.yaml
+    - src\yarpservice\deployment.yaml
+portForward:
+- resourceType: service
+  resourceName: src-yarpservice
+  port: 1141
