@@ -24,7 +24,7 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="$(MicrosoftExtensionsPackageVersion)" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="$(MicrosoftExtensionsPackageVersion)" />
     <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="$(MicrosoftExtensionsPackageVersion)" />
-    <PackageReference Include="Microsoft.Extensions.Hosting.WindowsServices" Version="$(MicrosoftExtensionsPackageVersion)" />
+    <PackageReference Include="Microsoft.Extensions.Hosting.WindowsServices" Version="5.0.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="$(MicrosoftEntityFrameworkCorePackageVersion)" />
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="$(MicrosoftEntityFrameworkCorePackageVersion)" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="$(MicrosoftEntityFrameworkCorePackageVersion)" />

@@ -23,7 +23,7 @@
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="$(MicrosoftEntityFrameworkCorePackageVersion)" />
     <PackageReference Include="Services.Shared" Version="1.1.2-prerelease" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="$(MicrosoftEntityFrameworkCorePackageVersion)" />
-    <PackageReference Include="Microsoft.Extensions.Hosting.WindowsServices" Version="$(MicrosoftExtensionsPackageVersion)" />
+    <PackageReference Include="Microsoft.Extensions.Hosting.WindowsServices" Version="5.0.1" />
     <PackageReference Include="MailKit" Version="2.10.1" />
     <PackageReference Include="NLog.Web.AspNetCore" Version="$(NLogWebVersion)" />
     <PackageReference Include="NLog" Version="$(NLogVersion)" />
