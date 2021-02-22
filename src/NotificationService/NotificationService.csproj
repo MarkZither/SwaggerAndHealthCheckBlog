@@ -27,7 +27,7 @@
     <PackageReference Include="MailKit" Version="2.10.1" />
     <PackageReference Include="NLog.Web.AspNetCore" Version="$(NLogWebVersion)" />
     <PackageReference Include="NLog" Version="$(NLogVersion)" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="$(SwashbuckleVersion)" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.0.7" />
   </ItemGroup>
 
 </Project>
