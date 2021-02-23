@@ -13,7 +13,7 @@
     <PackageReference Include="App.Metrics.GrafanaCloudHostedMetrics" Version="4.1.0" />
     <PackageReference Include="App.Metrics.InfluxDB" Version="4.1.0" />
     <PackageReference Include="App.Metrics.Reporting.Console" Version="4.1.0" />
-    <PackageReference Include="Finbuckle.MultiTenant.AspNetCore" Version="6.1.0" />
+    <PackageReference Include="Finbuckle.MultiTenant.AspNetCore" Version="6.2.0" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="$(VSContainersVersion)" />
     <PackageReference Include="Services.Shared" Version="1.1.2-prerelease" />
     <PackageReference Include="AspNetCore.HealthChecks.UI" Version="$(AspNetCoreHealthChecksUIVersion)" />

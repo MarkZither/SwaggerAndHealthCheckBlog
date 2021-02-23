@@ -15,7 +15,7 @@
     <PackageReference Include="App.Metrics.GrafanaCloudHostedMetrics" Version="4.1.0" />
     <PackageReference Include="App.Metrics.InfluxDB" Version="4.1.0" />
     <PackageReference Include="App.Metrics.Reporting.Console" Version="4.1.0" />
-    <PackageReference Include="Finbuckle.MultiTenant.AspNetCore" Version="6.1.0" />
+    <PackageReference Include="Finbuckle.MultiTenant.AspNetCore" Version="6.2.0" />
     <PackageReference Include="IdentityServer4.AspNetIdentity" Version="4.1.1" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="$(VSContainersVersion)" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="$(MicrosoftAspNetCorePackageVersion)" />
