@@ -18,7 +18,7 @@
     <PackageReference Include="AspNetCore.HealthChecks.UI" Version="$(AspNetCoreHealthChecksUIVersion)" />
     <PackageReference Include="Newtonsoft.Json" Version="$(NewtonsoftVersion)" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
-    <PackageReference Include="Microsoft.ReverseProxy" Version="1.0.0-preview.7.*" />
+    <PackageReference Include="Yarp.ReverseProxy" Version="1.0.0-rc.1.21520.4" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.8.0" />
     <PackageReference Include="Serilog.AspNetCore" Version="3.4.0" />
     <PackageReference Include="Serilog.Extensions.Hosting" Version="4.1.0" />
