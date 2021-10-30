@@ -5,10 +5,30 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": ".NET Core Launch (web)",
+            "name": ".NET Core Launch (ResourceService)",
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
+            "program": "${workspaceFolder}/src/ResourceService/bin/Debug/net6.0/ResourceService.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/src/ResourceService",
+            "stopAtEntry": false,
+            "serverReadyAction": {
+                "action": "openExternally",
+                "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
+            },
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            },
+            "sourceFileMap": {
+                "/Views": "${workspaceFolder}/Views"
+            }
+        },
+        {
+            "name": ".NET Core Launch (LoginService)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "buildLogin",
             "program": "${workspaceFolder}/src/LoginService/bin/Debug/net6.0/LoginService.dll",
             "args": [],
             "cwd": "${workspaceFolder}/src/LoginService",
