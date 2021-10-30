@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30428.66
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31717.71
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LoginService", "src\LoginService\LoginService.csproj", "{F4753B59-2D04-4D5F-AC8B-840A89D44139}"
 EndProject
@@ -37,6 +37,13 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleConsole", "src\SampleConsole\SampleConsole.csproj", "{DA482871-C6D1-4C31-88BF-968A27EFED66}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "_build", "build\_build.csproj", "{F6704889-A359-4936-8860-D42A949996F7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{4034E83F-7895-4B6B-8375-BE99160CED0A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "K6.LoadTests", "K6.LoadTests", "{463142AE-0378-4101-9583-561A7C79F899}"
+	ProjectSection(SolutionItems) = preProject
+		tests\K6.LoadTests\script.js = tests\K6.LoadTests\script.js
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -94,6 +101,7 @@ Global
 		{CAA0F77E-18EC-4613-8B79-CAE3F20BE647} = {AA32CBDE-475F-4DE4-846F-6CCDC2CCED80}
 		{DA482871-C6D1-4C31-88BF-968A27EFED66} = {AA32CBDE-475F-4DE4-846F-6CCDC2CCED80}
 		{F6704889-A359-4936-8860-D42A949996F7} = {DFAC8E33-6AC2-4828-A221-7FA9A7BEE40E}
+		{463142AE-0378-4101-9583-561A7C79F899} = {4034E83F-7895-4B6B-8375-BE99160CED0A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DF796BA0-C92D-45D5-9085-8B6CA551F30E}
