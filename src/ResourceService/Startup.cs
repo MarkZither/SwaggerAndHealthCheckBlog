@@ -7,9 +7,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
 using ResourceService.Configuration;
 using ResourceService.DataAccess;
 using ResourceService.Extensions;
+using Services.Shared.Extensions;
 using System;
 using System.ComponentModel;
 using System.Linq;
@@ -30,6 +32,7 @@ namespace ResourceService
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
             var resourceOptions = new ResourceOptions();
             Configuration.Bind(resourceOptions);
 
@@ -40,6 +43,13 @@ namespace ResourceService
             services.AddOptions();
 
             services.AddResourceServices();
+
+            services.AddAuthentication("Bearer")
+                .AddJwtBearer("Bearer", options =>
+                {
+                    options.Audience = "api1";
+                    options.Authority = resourceOptions.IdentityServerUrl;
+                });
 
             var targetHost = "www.microsoft.com";
             var targetHostIpAddresses = Dns.GetHostAddresses(targetHost).Select(h => h.ToString()).ToArray();
@@ -74,6 +84,11 @@ namespace ResourceService
             services.AddDbContext<ResourceDataContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("ResourceDb")));
             
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Swagger and HealthCheck blog Login Service", Version = "v1" });
+            });
+
             // Multi Tenant Services
             services.AddMultiTenant<TenantInfo>()
             .WithRouteStrategy()
@@ -92,10 +107,18 @@ namespace ResourceService
 
             app.UseRouting();
 
+            app.UseSwaggerUrlPortAuthMiddleware();
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("v1/swagger.json", "Login Service API V1");
+            });
+
             app.UseMultiTenant();   // Before UseAuthentication and UseMvc!!
                                     //https://www.finbuckle.com/MultiTenant/Docs/ConfigurationAndUsage#usemultitenant
                                     // https://www.finbuckle.com/MultiTenant/Docs/GettingStarted
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             // HealthCheck middleware
