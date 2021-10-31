@@ -70,6 +70,20 @@ namespace LoginService
                     },
                     AllowedScopes = { "api1" }
                 },
+                new Client
+                {
+                    ClientId = "demo_api_swagger",
+                    ClientName = "Swagger UI for demo_api",
+                    ClientSecrets = {new Secret("secret".Sha256())}, // change me!
+
+                    AllowedGrantTypes = GrantTypes.Code,
+                    RequirePkce = true,
+                    RequireClientSecret = false,
+
+                    RedirectUris = {"https://localhost:5002/swagger/oauth2-redirect.html"},
+                    AllowedCorsOrigins = {"https://localhost:5002"},
+                    AllowedScopes = {"api1"},
+                }
             };
     }
 }

@@ -8,6 +8,7 @@
   </PropertyGroup>
   
   <ItemGroup>
+    <PackageReference Include="IdentityServer4.AccessTokenValidation" Version="3.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.0-rc.2.21480.10" />
     <PackageReference Include="App.Metrics.AspNetCore.Mvc" Version="4.2.0" />
     <PackageReference Include="App.Metrics.AspNetCore.Tracking" Version="4.2.0" />

@@ -1,4 +1,7 @@
 using Finbuckle.MultiTenant;
+
+using Flurl;
+
 using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
@@ -13,6 +16,7 @@ using ResourceService.DataAccess;
 using ResourceService.Extensions;
 using Services.Shared.Extensions;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Net;
@@ -45,9 +49,20 @@ namespace ResourceService
             services.AddResourceServices();
 
             services.AddAuthentication("Bearer")
-                .AddJwtBearer("Bearer", options =>
+                /*.AddJwtBearer("Bearer", options =>
                 {
                     options.Audience = "api1";
+                    options.Authority = resourceOptions.IdentityServerUrl;
+                })*/
+                // https://www.scottbrady91.com/identity-server/aspnet-core-swagger-ui-authorization-using-identityserver4
+                .AddIdentityServerAuthentication("Bearer", options =>
+                {
+                    // required audience of access tokens
+                    // see https://identityserver4.readthedocs.io/en/latest/topics/resources.html
+                    // as we use options.EmitStaticAudienceClaim = true; in loginservice startup we use this ApiName
+                    options.ApiName = resourceOptions.IdentityServerUrl.AppendPathSegment("resources"); //"api1";
+
+                    // auth server base endpoint (this will be used to search for disco doc)
                     options.Authority = resourceOptions.IdentityServerUrl;
                 });
 
@@ -87,6 +102,23 @@ namespace ResourceService
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Swagger and HealthCheck blog Login Service", Version = "v1" });
+                c.OperationFilter<AuthorizeOperationFilter>();
+                c.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
+                {
+                    Type = SecuritySchemeType.OAuth2,
+                    Flows = new OpenApiOAuthFlows
+                    {
+                        AuthorizationCode = new OpenApiOAuthFlow
+                        {
+                            AuthorizationUrl = new Uri("https://localhost:1115/connect/authorize"),
+                            TokenUrl = new Uri("https://localhost:1115/connect/token"),
+                            Scopes = new Dictionary<string, string>
+                            {
+                                {"api1", "Demo API - full access"}
+                            }
+                        }
+                    }
+                });
             });
 
             // Multi Tenant Services
@@ -112,6 +144,8 @@ namespace ResourceService
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("v1/swagger.json", "Login Service API V1");
+                c.OAuthClientId("demo_api_swagger");
+                c.OAuthUsePkce();
             });
 
             app.UseMultiTenant();   // Before UseAuthentication and UseMvc!!
