@@ -80,8 +80,22 @@ namespace LoginService
                     RequirePkce = true,
                     RequireClientSecret = false,
 
-                    RedirectUris = {"https://localhost:5002/swagger/oauth2-redirect.html"},
-                    AllowedCorsOrigins = {"https://localhost:5002"},
+                    RedirectUris = {"https://localhost:5002/swagger/oauth2-redirect.html", "https://localhost:7082/swagger/oauth2-redirect.html"},
+                    AllowedCorsOrigins = {"https://localhost:5002", "https://localhost:7082"},
+                    AllowedScopes = {"api1"},
+                },
+                new Client
+                {
+                    ClientId = "demo_api_no_PKCE",
+                    ClientName = "Swagger UI for demo_api",
+                    ClientSecrets = {new Secret("secret".Sha256())}, // change me!
+
+                    AllowedGrantTypes = GrantTypes.Code,
+                    RequirePkce = false,
+                    RequireClientSecret = true,
+
+                    RedirectUris = {"https://localhost:5002/swagger/oauth2-redirect.html", "https://localhost:7082/swagger/oauth2-redirect.html"},
+                    AllowedCorsOrigins = {"https://localhost:5002", "https://localhost:7082"},
                     AllowedScopes = {"api1"},
                 }
             };

@@ -69,7 +69,8 @@ namespace LoginService
                 .UseMetrics()
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    if (OperatingSystem.IsWindows())
+                    var useHttpSys = Configuration.GetSection("Hosting").GetValue<bool>("UseHttpSys");
+                    if (OperatingSystem.IsWindows() && useHttpSys)
                     {
                         webBuilder.UseHttpSys(
                             httpSysOptions =>
@@ -98,7 +99,7 @@ namespace LoginService
                 .ConfigureLogging(logging =>
                 {
                     logging.ClearProviders();
-                    logging.SetMinimumLevel(Microsoft.Extensions.Logging.LogLevel.Trace);
+                    logging.SetMinimumLevel(Microsoft.Extensions.Logging.LogLevel.Information);
                 })
                 .UseNLog(); // NLog: Setup NLog for Dependency injection;
     }
