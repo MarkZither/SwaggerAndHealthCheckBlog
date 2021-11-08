@@ -1,12 +1,12 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
-using Microsoft.ReverseProxy.Middleware;
-using Microsoft.ReverseProxy.RuntimeModel;
+using Yarp.ReverseProxy;
 using System;
 using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Threading.Tasks;
+using Yarp.ReverseProxy.Model;
 
 namespace YARPService.Middlewares
 {
@@ -52,14 +52,14 @@ namespace YARPService.Middlewares
                 return Task.CompletedTask;
             }
             */
-            var destination = PickJWTIssuerDestination(destinations.Where(x => x.Config.Address.TrimEnd('/').Equals(issuer.TrimEnd('/'), StringComparison.Ordinal)));
+            var destination = PickJWTIssuerDestination(destinations.Where(x => x.Model.Config.Address.TrimEnd('/').Equals(issuer.TrimEnd('/'), StringComparison.Ordinal)));
             proxyFeature.AvailableDestinations = destination;
 
             return _next(context);
         }
 
-        public DestinationInfo PickJWTIssuerDestination(
-            IEnumerable<DestinationInfo> endpoints)
+        public DestinationState PickJWTIssuerDestination(
+            IEnumerable<DestinationState> endpoints)
         {
             var endpointCount = endpoints.Count();
             if (endpointCount == 0)

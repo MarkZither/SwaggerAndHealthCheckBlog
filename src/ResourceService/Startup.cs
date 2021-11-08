@@ -1,4 +1,7 @@
 using Finbuckle.MultiTenant;
+
+using Flurl;
+
 using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
@@ -7,10 +10,13 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
 using ResourceService.Configuration;
 using ResourceService.DataAccess;
 using ResourceService.Extensions;
+using Services.Shared.Extensions;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Net;
@@ -30,6 +36,7 @@ namespace ResourceService
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
             var resourceOptions = new ResourceOptions();
             Configuration.Bind(resourceOptions);
 
@@ -40,6 +47,24 @@ namespace ResourceService
             services.AddOptions();
 
             services.AddResourceServices();
+
+            services.AddAuthentication("Bearer")
+                /*.AddJwtBearer("Bearer", options =>
+                {
+                    options.Audience = "api1";
+                    options.Authority = resourceOptions.IdentityServerUrl;
+                })*/
+                // https://www.scottbrady91.com/identity-server/aspnet-core-swagger-ui-authorization-using-identityserver4
+                .AddIdentityServerAuthentication("Bearer", options =>
+                {
+                    // required audience of access tokens
+                    // see https://identityserver4.readthedocs.io/en/latest/topics/resources.html
+                    // as we use options.EmitStaticAudienceClaim = true; in loginservice startup we use this ApiName
+                    options.ApiName = resourceOptions.IdentityServerUrl.AppendPathSegment("resources"); //"api1";
+
+                    // auth server base endpoint (this will be used to search for disco doc)
+                    options.Authority = resourceOptions.IdentityServerUrl;
+                });
 
             var targetHost = "www.microsoft.com";
             var targetHostIpAddresses = Dns.GetHostAddresses(targetHost).Select(h => h.ToString()).ToArray();
@@ -74,6 +99,28 @@ namespace ResourceService
             services.AddDbContext<ResourceDataContext>(options =>
                     options.UseSqlServer(Configuration.GetConnectionString("ResourceDb")));
             
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Swagger and HealthCheck blog Login Service", Version = "v1" });
+                c.OperationFilter<AuthorizeOperationFilter>();
+                c.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
+                {
+                    Type = SecuritySchemeType.OAuth2,
+                    Flows = new OpenApiOAuthFlows
+                    {
+                        AuthorizationCode = new OpenApiOAuthFlow
+                        {
+                            AuthorizationUrl = new Uri("https://localhost:1115/connect/authorize"),
+                            TokenUrl = new Uri("https://localhost:1115/connect/token"),
+                            Scopes = new Dictionary<string, string>
+                            {
+                                {"api1", "Demo API - full access"}
+                            }
+                        }
+                    }
+                });
+            });
+
             // Multi Tenant Services
             services.AddMultiTenant<TenantInfo>()
             .WithRouteStrategy()
@@ -92,10 +139,20 @@ namespace ResourceService
 
             app.UseRouting();
 
+            app.UseSwaggerUrlPortAuthMiddleware();
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("v1/swagger.json", "Login Service API V1");
+                c.OAuthClientId("demo_api_swagger");
+                c.OAuthUsePkce();
+            });
+
             app.UseMultiTenant();   // Before UseAuthentication and UseMvc!!
                                     //https://www.finbuckle.com/MultiTenant/Docs/ConfigurationAndUsage#usemultitenant
                                     // https://www.finbuckle.com/MultiTenant/Docs/GettingStarted
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             // HealthCheck middleware

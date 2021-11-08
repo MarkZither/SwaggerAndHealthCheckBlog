@@ -1,32 +1,32 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <UserSecretsId>472a480c-a3d2-4778-8659-37387be26a8f</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <DockerfileContext>..\..</DockerfileContext>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="App.Metrics.AspNetCore.Mvc" Version="4.1.0" />
-    <PackageReference Include="App.Metrics.AspNetCore.Tracking" Version="4.1.0" />
-    <PackageReference Include="App.Metrics.GrafanaCloudHostedMetrics" Version="4.1.0" />
-    <PackageReference Include="App.Metrics.InfluxDB" Version="4.1.0" />
-    <PackageReference Include="App.Metrics.Reporting.Console" Version="4.1.0" />
-    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="$(VSContainersVersion)" />
+    <PackageReference Include="App.Metrics.AspNetCore.Mvc" Version="4.2.0" />
+    <PackageReference Include="App.Metrics.AspNetCore.Tracking" Version="4.2.0" />
+    <PackageReference Include="App.Metrics.GrafanaCloudHostedMetrics" Version="4.2.0" />
+    <PackageReference Include="App.Metrics.InfluxDB" Version="4.2.0" />
+    <PackageReference Include="App.Metrics.Reporting.Console" Version="4.2.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.11.1" />
     <PackageReference Include="Services.Shared" Version="1.1.2-prerelease" />
     <PackageReference Include="AspNetCore.HealthChecks.UI" Version="$(AspNetCoreHealthChecksUIVersion)" />
     <PackageReference Include="Newtonsoft.Json" Version="$(NewtonsoftVersion)" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="$(SwashbuckleVersion)" />
-    <PackageReference Include="Microsoft.ReverseProxy" Version="1.0.0-preview.7.*" />
-    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.8.0" />
-    <PackageReference Include="Serilog.AspNetCore" Version="3.4.0" />
-    <PackageReference Include="Serilog.Extensions.Hosting" Version="$(SerilogPackageVersion)" />
-    <PackageReference Include="Serilog.Enrichers.Environment" Version="2.1.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+    <PackageReference Include="Yarp.ReverseProxy" Version="1.0.0-rc.1.21520.4" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.13.1" />
+    <PackageReference Include="Serilog.AspNetCore" Version="4.1.0" />
+    <PackageReference Include="Serilog.Extensions.Hosting" Version="4.1.2" />
+    <PackageReference Include="Serilog.Enrichers.Environment" Version="2.2.0" />
     <PackageReference Include="Serilog.Enrichers.Thread" Version="$(SerilogPackageVersion)" />
-    <PackageReference Include="Serilog.Settings.Configuration" Version="$(SerilogPackageVersion)" />
-    <PackageReference Include="Serilog.Sinks.Console" Version="3.1.1" />
-    <PackageReference Include="Serilog.Sinks.File" Version="4.1.0" />
-    <PackageReference Include="Serilog.Sinks.InfluxDB.Syslog" Version="1.3.1" />
+    <PackageReference Include="Serilog.Settings.Configuration" Version="3.3.0" />
+    <PackageReference Include="Serilog.Sinks.Console" Version="4.0.0" />
+    <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
+    <PackageReference Include="Serilog.Sinks.InfluxDB.Syslog" Version="2.0.2" />
   </ItemGroup>
 </Project>

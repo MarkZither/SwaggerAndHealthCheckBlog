@@ -1,38 +1,40 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <UserSecretsId>23de040e-21cb-46ac-a8c2-5c724bb7ef8e</UserSecretsId>
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <DockerfileContext>..\..</DockerfileContext>
   </PropertyGroup>
   
   <ItemGroup>
-    <PackageReference Include="App.Metrics.AspNetCore.Mvc" Version="4.1.0" />
-    <PackageReference Include="App.Metrics.AspNetCore.Tracking" Version="4.1.0" />
-    <PackageReference Include="App.Metrics.GrafanaCloudHostedMetrics" Version="4.1.0" />
-    <PackageReference Include="App.Metrics.InfluxDB" Version="4.1.0" />
-    <PackageReference Include="App.Metrics.Reporting.Console" Version="4.1.0" />
+    <PackageReference Include="IdentityServer4.AccessTokenValidation" Version="3.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.0-rc.2.21480.10" />
+    <PackageReference Include="App.Metrics.AspNetCore.Mvc" Version="4.2.0" />
+    <PackageReference Include="App.Metrics.AspNetCore.Tracking" Version="4.2.0" />
+    <PackageReference Include="App.Metrics.GrafanaCloudHostedMetrics" Version="4.2.0" />
+    <PackageReference Include="App.Metrics.InfluxDB" Version="4.2.0" />
+    <PackageReference Include="App.Metrics.Reporting.Console" Version="4.2.0" />
     <PackageReference Include="AspNetCore.HealthChecks.OpenIdConnectServer" Version="5.0.1" />
-    <PackageReference Include="Finbuckle.MultiTenant.AspNetCore" Version="6.1.0" />
-    <PackageReference Include="Flurl" Version="3.0.1" />
+    <PackageReference Include="Finbuckle.MultiTenant.AspNetCore" Version="6.4.2" />
+    <PackageReference Include="Flurl" Version="3.0.2" />
     <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore" Version="$(MicrosoftExtensionsPackageVersion)" />
-    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="$(VSContainersVersion)" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.11.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="$(MicrosoftEntityFrameworkCorePackageVersion)" />
-    <PackageReference Include="Serilog.AspNetCore" Version="3.4.0" />
-    <PackageReference Include="Serilog.Extensions.Hosting" Version="$(SerilogPackageVersion)" />
-    <PackageReference Include="Serilog.Enrichers.Environment" Version="2.1.3" />
+    <PackageReference Include="Serilog.AspNetCore" Version="4.1.0" />
+    <PackageReference Include="Serilog.Extensions.Hosting" Version="4.1.2" />
+    <PackageReference Include="Serilog.Enrichers.Environment" Version="2.2.0" />
     <PackageReference Include="Serilog.Enrichers.Thread" Version="$(SerilogPackageVersion)" />
-    <PackageReference Include="Serilog.Settings.Configuration" Version="$(SerilogPackageVersion)" />
-    <PackageReference Include="Serilog.Sinks.Console" Version="3.1.1" />
-    <PackageReference Include="Serilog.Sinks.File" Version="4.1.0" />
-    <PackageReference Include="Serilog.Sinks.InfluxDB.Syslog" Version="1.3.1" />
+    <PackageReference Include="Serilog.Settings.Configuration" Version="3.3.0" />
+    <PackageReference Include="Serilog.Sinks.Console" Version="4.0.0" />
+    <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
+    <PackageReference Include="Serilog.Sinks.InfluxDB.Syslog" Version="2.0.2" />
     <PackageReference Include="Services.Shared" Version="1.1.2-prerelease" />
     <PackageReference Include="AspNetCore.HealthChecks.UI" Version="$(AspNetCoreHealthChecksUIVersion)" />
     <PackageReference Include="AspNetCore.HealthChecks.UI.Client" Version="$(AspNetCoreHealthChecksUIVersion)" />
     <PackageReference Include="AspNetCore.HealthChecks.System" Version="$(AspNetCoreHealthChecksVersion)" />
-    <PackageReference Include="AspNetCore.HealthChecks.Network" Version="$(AspNetCoreHealthChecksVersion)" />
+    <PackageReference Include="AspNetCore.HealthChecks.Network" Version="5.0.4" />
     <PackageReference Include="Newtonsoft.Json" Version="$(NewtonsoftVersion)" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="$(SwashbuckleVersion)" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 </Project>

@@ -33,10 +33,54 @@ Copy this new certification into the `Trusted Root Certification Authorities` no
 
 Now we can use the Thumbprint as the certhash in the netsh sslcert command
 
+Be sure to switch back to cmd to run these commands to avoid an error like `The parameter is incorrect`.
+
 ``` cmd
 netsh http add sslcert ipport=0.0.0.0:1115 certhash=53B0542569C2580C46C34DBE824114D78D4E09FC appid={8C17E6D4-8534-40F6-B3D3-0296EC69099F}
 netsh http add sslcert ipport=0.0.0.0:1116 certhash=53B0542569C2580C46C34DBE824114D78D4E09FC appid={8C17E6D4-8534-40F6-B3D3-0296EC69099F}
 ```
+
+## Updating an expired certificate
+Find the current certification using the following commands.
+
+``` cmd
+netsh http show sslcert ipport=0.0.0.0:1115
+netsh http show sslcert ipport=0.0.0.0:1116
+```
+
+The response will start with the important information including the certhash
+
+``` cmd
+SSL Certificate bindings:
+-------------------------
+
+    IP:port                      : 0.0.0.0:1115
+    Certificate Hash             : 53b0542569c2580c46c34dbe824114d78d4e09fc
+    Application ID               : {8c17e6d4-8534-40f6-b3d3-0296ec69099f}
+```
+
+Remove the existing binding with the delete command
+
+``` cmd
+netsh http delete sslcert ipport=0.0.0.0:1115
+```
+
+To confirm the certificate is no longer bound to the ipport run the show command again
+
+``` cmd
+netsh http show sslcert ipport=0.0.0.0:1115
+```
+
+The output will now show no bindings
+
+``` cmd
+SSL Certificate bindings:
+-------------------------
+
+The system cannot find the file specified.
+```
+
+You can now register a new certificate by following the steps above.
 
 ## References
 [zhaytam]: https://blog.zhaytam.com/2020/04/30/health-checks-aspnetcore/

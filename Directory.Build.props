@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Product>BaGet</Product>
 
-    <PackageVersion Condition="'$(PackageVersion)' == ''">1.1.2-prerelease</PackageVersion>
+    <PackageVersion Condition="'$(PackageVersion)' == ''">1.1.3-prerelease</PackageVersion>
     <PackageProjectUrl>https://github.com/MarkZither/SwaggerAndHealthCheckBlog</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageIconUrl>https://raw.githubusercontent.com/NuGet/Media/master/Images/MainLogo/256x256/nuget_256.png</PackageIconUrl>
@@ -27,18 +27,18 @@
 
   <!-- NuGet dependencies shared across projects -->
   <PropertyGroup>
-    <MicrosoftAspNetCorePackageVersion>5.0.2</MicrosoftAspNetCorePackageVersion>
-    <MicrosoftEntityFrameworkCorePackageVersion>5.0.2</MicrosoftEntityFrameworkCorePackageVersion>
-    <MicrosoftExtensionsPackageVersion>5.0.*</MicrosoftExtensionsPackageVersion>
+    <MicrosoftAspNetCorePackageVersion>6.0.0</MicrosoftAspNetCorePackageVersion>
+    <MicrosoftEntityFrameworkCorePackageVersion>6.0.0</MicrosoftEntityFrameworkCorePackageVersion>
+    <MicrosoftExtensionsPackageVersion>6.0.0</MicrosoftExtensionsPackageVersion>
     <NuGetPackageVersion>5.4.0</NuGetPackageVersion>
     <AspNetCoreHealthChecksVersion>5.0.1</AspNetCoreHealthChecksVersion>
-    <AspNetCoreHealthChecksSqlServerVersion>5.0.2</AspNetCoreHealthChecksSqlServerVersion>
+    <AspNetCoreHealthChecksSqlServerVersion>5.0.3</AspNetCoreHealthChecksSqlServerVersion>
     <AspNetCoreHealthChecksIdSrvVersion>5.0.1</AspNetCoreHealthChecksIdSrvVersion>
     <AspNetCoreHealthChecksUIVersion>5.0.1</AspNetCoreHealthChecksUIVersion>
     <SwashbuckleVersion>5.6.3</SwashbuckleVersion>
     <ServicesSharedVersion>1.1.1-prerelease</ServicesSharedVersion>
     <VSContainersVersion>1.10.9</VSContainersVersion>
-    <NewtonsoftVersion>12.0.3</NewtonsoftVersion>
+    <NewtonsoftVersion>13.0.1</NewtonsoftVersion>
     <NLogVersion>4.7.7</NLogVersion>
     <NLogWebVersion>4.10.0</NLogWebVersion>
     <SerilogPackageVersion>3.1.0</SerilogPackageVersion>
