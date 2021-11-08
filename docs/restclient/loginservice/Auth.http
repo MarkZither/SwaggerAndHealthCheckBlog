@@ -1,6 +1,6 @@
 @baseUrl = https://localhost:1116
 
-# @name login
+# @name loginClient
 POST {{baseUrl}}/connect/token HTTP/1.1
 content-type: application/x-www-form-urlencoded
 Accept: application/json
@@ -10,6 +10,21 @@ grant_type=client_credentials
 &client_secret=511536EF-F270-4058-80CA-1C89C192F69A
 &scope=scope1 IdentityServerApi
 
+###
+@clientAuthToken = {{loginClient.response.body.access_token}}
+
+# @name login
+POST {{baseUrl}}/connect/token HTTP/1.1
+content-type: application/x-www-form-urlencoded
+Accept: application/json
+
+grant_type=authorization_code
+&code=21565AB0
+&redirect_uri=https://localhost:7082/swagger/oauth2-redirect.html
+&client_id=demo_api_swagger
+&client_secret=secret
+&scope=api1
+&code_verifier=uff97hxYDqnqmEWY19Kk5oXWPUvUX-ekRoaZqCMAEnE
 ###
 @authToken = {{login.response.body.access_token}}
 
