@@ -48,6 +48,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "K6.LoadTests", "K6.LoadTest
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Angular.Bootstrapped", "src\Angular.Bootstrapped\Angular.Bootstrapped.csproj", "{97F9AF4D-CA18-4AB1-9825-40888B9AAFD0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DuendeLoginService", "src\DuendeLoginService\DuendeLoginService.csproj", "{0B936438-4BCF-44A4-984D-22A150EF93B9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -94,6 +96,10 @@ Global
 		{97F9AF4D-CA18-4AB1-9825-40888B9AAFD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{97F9AF4D-CA18-4AB1-9825-40888B9AAFD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{97F9AF4D-CA18-4AB1-9825-40888B9AAFD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B936438-4BCF-44A4-984D-22A150EF93B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B936438-4BCF-44A4-984D-22A150EF93B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B936438-4BCF-44A4-984D-22A150EF93B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B936438-4BCF-44A4-984D-22A150EF93B9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -110,6 +116,7 @@ Global
 		{F6704889-A359-4936-8860-D42A949996F7} = {DFAC8E33-6AC2-4828-A221-7FA9A7BEE40E}
 		{463142AE-0378-4101-9583-561A7C79F899} = {4034E83F-7895-4B6B-8375-BE99160CED0A}
 		{97F9AF4D-CA18-4AB1-9825-40888B9AAFD0} = {AA32CBDE-475F-4DE4-846F-6CCDC2CCED80}
+		{0B936438-4BCF-44A4-984D-22A150EF93B9} = {AA32CBDE-475F-4DE4-846F-6CCDC2CCED80}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DF796BA0-C92D-45D5-9085-8B6CA551F30E}
