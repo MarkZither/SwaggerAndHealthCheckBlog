@@ -8,19 +8,19 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="App.Metrics.AspNetCore.Mvc" Version="4.2.0" />
-    <PackageReference Include="App.Metrics.AspNetCore.Tracking" Version="4.2.0" />
-    <PackageReference Include="App.Metrics.GrafanaCloudHostedMetrics" Version="4.2.0" />
-    <PackageReference Include="App.Metrics.InfluxDB" Version="4.2.0" />
-    <PackageReference Include="App.Metrics.Reporting.Console" Version="4.2.0" />
-    <PackageReference Include="Finbuckle.MultiTenant.AspNetCore" Version="6.4.2" />
-    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.11.1" />
+    <PackageReference Include="App.Metrics.AspNetCore.Mvc" Version="4.3.0" />
+    <PackageReference Include="App.Metrics.AspNetCore.Tracking" Version="4.3.0" />
+    <PackageReference Include="App.Metrics.GrafanaCloudHostedMetrics" Version="4.3.0" />
+    <PackageReference Include="App.Metrics.InfluxDB" Version="4.3.0" />
+    <PackageReference Include="App.Metrics.Reporting.Console" Version="4.3.0" />
+    <PackageReference Include="Finbuckle.MultiTenant.AspNetCore" Version="6.5.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.14.0" />
     <PackageReference Include="Services.Shared" Version="1.1.2-prerelease" />
     <PackageReference Include="AspNetCore.HealthChecks.UI" Version="$(AspNetCoreHealthChecksUIVersion)" />
     <PackageReference Include="AspNetCore.HealthChecks.UI.InMemory.Storage" Version="$(AspNetCoreHealthChecksUIVersion)" />
     <PackageReference Include="Newtonsoft.Json" Version="$(NewtonsoftVersion)" />
     <PackageReference Include="NLog.Web.AspNetCore" Version="4.14.0" />
-    <PackageReference Include="NLog" Version="4.7.12" />
+    <PackageReference Include="NLog" Version="4.7.13" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
