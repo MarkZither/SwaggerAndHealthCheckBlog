@@ -37,13 +37,13 @@ namespace LoginService
         {
             var filter = new MetricsFilter().WhereType(MetricType.Timer);
             var metrics = new MetricsBuilder()
-                .Report.ToConsole(
+                /*.Report.ToConsole(
                     options =>
                     {
                         options.FlushInterval = TimeSpan.FromSeconds(5);
                         options.Filter = filter;
                         options.MetricsOutputFormatter = new MetricsJsonOutputFormatter();
-                    })
+                    })*/
                 .Report.ToHostedMetrics(
                 "https://graphite-us-central1.grafana.net/metrics",
                 //"42196:eyJrIjoiNzU1OTYwOWU0ZjAyYzlhOWYyYzE1YzM3MDg2ZTEwYWI4YWU4OTUyYiIsIm4iOiJNZXRyaWNzUHVibGlzaGVyIiwiaWQiOjQ2NDIwNn0="
