@@ -3,6 +3,8 @@ using Finbuckle.MultiTenant;
 using Flurl;
 
 using HealthChecks.UI.Client;
+
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Hosting;
@@ -14,6 +16,8 @@ using Microsoft.OpenApi.Models;
 using ResourceService.Configuration;
 using ResourceService.DataAccess;
 using ResourceService.Extensions;
+using ResourceService.Middlewares;
+
 using Services.Shared.Extensions;
 using System;
 using System.Collections.Generic;
@@ -120,6 +124,9 @@ namespace ResourceService
                     }
                 });
             });
+
+            services.AddSingleton<IAuthorizationMiddlewareResultHandler,
+                                    MyAuthorizationMiddlewareResultHandler>();
 
             // Multi Tenant Services
             services.AddMultiTenant<TenantInfo>()
