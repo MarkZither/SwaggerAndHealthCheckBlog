@@ -15,7 +15,7 @@
     <PackageReference Include="App.Metrics.GrafanaCloudHostedMetrics" Version="4.3.0" />
     <PackageReference Include="App.Metrics.InfluxDB" Version="4.3.0" />
     <PackageReference Include="App.Metrics.Reporting.Console" Version="4.3.0" />
-    <PackageReference Include="AspNetCore.HealthChecks.OpenIdConnectServer" Version="5.0.1" />
+    <PackageReference Include="AspNetCore.HealthChecks.OpenIdConnectServer" Version="$(AspNetCoreHealthChecksIdSrvVersion)" />
     <PackageReference Include="Finbuckle.MultiTenant.AspNetCore" Version="6.5.1" />
     <PackageReference Include="Flurl" Version="3.0.2" />
     <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore" Version="$(MicrosoftExtensionsPackageVersion)" />
