@@ -9,7 +9,7 @@
   
   <ItemGroup>
     <PackageReference Include="IdentityServer4.AccessTokenValidation" Version="3.0.1" />
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="$(MicrosoftAspNetCorePackageVersion)" />
     <PackageReference Include="App.Metrics.AspNetCore.Mvc" Version="4.3.0" />
     <PackageReference Include="App.Metrics.AspNetCore.Tracking" Version="4.3.0" />
     <PackageReference Include="App.Metrics.GrafanaCloudHostedMetrics" Version="4.3.0" />
@@ -18,7 +18,7 @@
     <PackageReference Include="AspNetCore.HealthChecks.OpenIdConnectServer" Version="$(AspNetCoreHealthChecksIdSrvVersion)" />
     <PackageReference Include="Finbuckle.MultiTenant.AspNetCore" Version="6.5.1" />
     <PackageReference Include="Flurl" Version="3.0.2" />
-    <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore" Version="$(MicrosoftExtensionsPackageVersion)" />
+    <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore" Version="$(MicrosoftExtensionsHealthEFCorePackageVersion)" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.14.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="$(MicrosoftEntityFrameworkCorePackageVersion)" />
     <PackageReference Include="Serilog.AspNetCore" Version="4.1.0" />
@@ -33,7 +33,7 @@
     <PackageReference Include="AspNetCore.HealthChecks.UI" Version="$(AspNetCoreHealthChecksUIVersion)" />
     <PackageReference Include="AspNetCore.HealthChecks.UI.Client" Version="$(AspNetCoreHealthChecksUIVersion)" />
     <PackageReference Include="AspNetCore.HealthChecks.System" Version="$(AspNetCoreHealthChecksVersion)" />
-    <PackageReference Include="AspNetCore.HealthChecks.Network" Version="5.0.4" />
+    <PackageReference Include="AspNetCore.HealthChecks.Network" Version="$(AspNetCoreHealthChecksVersion)" />
     <PackageReference Include="Newtonsoft.Json" Version="$(NewtonsoftVersion)" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>

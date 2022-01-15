@@ -30,6 +30,8 @@
     <MicrosoftAspNetCorePackageVersion>6.0.1</MicrosoftAspNetCorePackageVersion>
     <MicrosoftEntityFrameworkCorePackageVersion>6.0.1</MicrosoftEntityFrameworkCorePackageVersion>
     <MicrosoftExtensionsPackageVersion>6.0.0</MicrosoftExtensionsPackageVersion>
+    <MicrosoftExtensionsPollyPackageVersion>6.0.1</MicrosoftExtensionsPollyPackageVersion>
+    <MicrosoftExtensionsHealthEFCorePackageVersion>6.0.1</MicrosoftExtensionsHealthEFCorePackageVersion>
     <NuGetPackageVersion>5.4.0</NuGetPackageVersion>
     <AspNetCoreHealthChecksVersion>6.0.1</AspNetCoreHealthChecksVersion>
     <AspNetCoreHealthChecksSqlServerVersion>6.0.1</AspNetCoreHealthChecksSqlServerVersion>
