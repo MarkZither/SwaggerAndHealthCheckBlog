@@ -50,9 +50,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Angular.Bootstrapped", "src
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DuendeLoginService", "src\DuendeLoginService\DuendeLoginService.csproj", "{0B936438-4BCF-44A4-984D-22A150EF93B9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChaosResilientService", "src\ChaosResilientService\ChaosResilientService.csproj", "{BB94FFEF-6838-499F-AF57-940C5D92D91B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChaosResilientService", "src\ChaosResilientService\ChaosResilientService.csproj", "{BB94FFEF-6838-499F-AF57-940C5D92D91B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orchard.Core.OpenIddict", "src\Orchard.Core.OpenIddict\Orchard.Core.OpenIddict.csproj", "{92692D30-27AE-4317-889C-B689EB184634}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Orchard.Core.OpenIddict", "src\Orchard.Core.OpenIddict\Orchard.Core.OpenIddict.csproj", "{92692D30-27AE-4317-889C-B689EB184634}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -353,3 +353,5 @@ MigrationBackup/
 .ionide/
 /src/LoginService/.logsinternal-YARPservice.txt
 /src/Orchard.Core.OpenIddict/App_Data
+/src/DuendeLoginService/keys
+/src/DuendeLoginService/AspIdUsersV6_1.db
