@@ -82,6 +82,11 @@ The system cannot find the file specified.
 
 You can now register a new certificate by following the steps above.
 
+## Nuget package source mapping
+
+Since nuget 6 it is possible to specify which feed certain packages should be restored from.
+The rules for this are documented on [Microsoft Learn](https://learn.microsoft.com/en-us/nuget/consume-packages/package-source-mapping) and precedence is further discussed in this [Github issue](https://github.com/NuGet/Home/issues/11406)
+
 ## References
 [zhaytam]: https://blog.zhaytam.com/2020/04/30/health-checks-aspnetcore/
 [KeePass.Extensions.Configuration]: https://github.com/adamfisher/KeePass.Extensions.Configuration
