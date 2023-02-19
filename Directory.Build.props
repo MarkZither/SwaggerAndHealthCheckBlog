@@ -27,18 +27,18 @@
 
   <!-- NuGet dependencies shared across projects -->
   <PropertyGroup>
-    <MicrosoftAspNetCorePackageVersion>6.0.1</MicrosoftAspNetCorePackageVersion>
-    <MicrosoftEntityFrameworkCorePackageVersion>6.0.1</MicrosoftEntityFrameworkCorePackageVersion>
+    <MicrosoftAspNetCorePackageVersion>6.0.14</MicrosoftAspNetCorePackageVersion>
+    <MicrosoftEntityFrameworkCorePackageVersion>6.0.14</MicrosoftEntityFrameworkCorePackageVersion>
     <MicrosoftExtensionsPackageVersion>6.0.0</MicrosoftExtensionsPackageVersion>
     <MicrosoftExtensionsPollyPackageVersion>6.0.1</MicrosoftExtensionsPollyPackageVersion>
-    <MicrosoftExtensionsHealthEFCorePackageVersion>6.0.1</MicrosoftExtensionsHealthEFCorePackageVersion>
+    <MicrosoftExtensionsHealthEFCorePackageVersion>6.0.14</MicrosoftExtensionsHealthEFCorePackageVersion>
     <NuGetPackageVersion>5.4.0</NuGetPackageVersion>
-    <AspNetCoreHealthChecksVersion>6.0.1</AspNetCoreHealthChecksVersion>
-    <AspNetCoreHealthChecksSqlServerVersion>6.0.1</AspNetCoreHealthChecksSqlServerVersion>
-    <AspNetCoreHealthChecksIdSrvVersion>6.0.1</AspNetCoreHealthChecksIdSrvVersion>
-    <AspNetCoreHealthChecksUIVersion>6.0.2</AspNetCoreHealthChecksUIVersion>
+    <AspNetCoreHealthChecksVersion>6.0.4</AspNetCoreHealthChecksVersion>
+    <AspNetCoreHealthChecksSqlServerVersion>6.0.2</AspNetCoreHealthChecksSqlServerVersion>
+    <AspNetCoreHealthChecksIdSrvVersion>6.0.2</AspNetCoreHealthChecksIdSrvVersion>
+    <AspNetCoreHealthChecksUIVersion>6.0.5</AspNetCoreHealthChecksUIVersion>
     <SwashbuckleVersion>5.6.3</SwashbuckleVersion>
-    <ServicesSharedVersion>1.1.1-prerelease</ServicesSharedVersion>
+    <ServicesSharedVersion>1.1.2-prerelease</ServicesSharedVersion>
     <VSContainersVersion>1.10.9</VSContainersVersion>
     <NewtonsoftVersion>13.0.1</NewtonsoftVersion>
     <NLogVersion>4.7.7</NLogVersion>
