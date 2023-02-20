@@ -42,8 +42,8 @@
     <PackageReference Include="AspNetCore.HealthChecks.SqlServer" Version="$(AspNetCoreHealthChecksSqlServerVersion)" />
     <PackageReference Include="AspNetCore.HealthChecks.OpenIdConnectServer" Version="$(AspNetCoreHealthChecksIdSrvVersion)" />
     <PackageReference Include="Newtonsoft.Json" Version="$(NewtonsoftVersion)" />
-    <PackageReference Include="NLog.Web.AspNetCore" Version="4.14.0" />
-    <PackageReference Include="NLog" Version="4.7.13" />
+    <PackageReference Include="NLog.Web.AspNetCore" Version="$(NLogWebVersion)" />
+    <PackageReference Include="NLog" Version="$(NLogVersion)" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="$(SwashbuckleVersion)" />
   </ItemGroup>
 
