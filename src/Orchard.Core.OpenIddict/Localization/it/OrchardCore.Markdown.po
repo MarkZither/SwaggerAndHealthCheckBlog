@@ -10,13 +10,13 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language-Team: Italian\n"
 "Language: it_IT\n"
-"PO-Revision-Date: 2022-01-05 13:51\n"
+"PO-Revision-Date: 2022-10-11 20:16\n"
 
 #. updater.ModelState.AddModelError(Prefix, nameof(viewModel.Markdown), S["{0} doesn't contain a valid Liquid expression. Details: {1}", partName, string.Join(" ", errors)]);
 #: OrchardCore.Markdown\Drivers\MarkdownBodyPartDisplayDriver.cs:75
 msgctxt "OrchardCore.Markdown.Drivers.MarkdownBodyPartDisplayDriver"
 msgid "{0} doesn't contain a valid Liquid expression. Details: {1}"
-msgstr ""
+msgstr "{0} non contiene un'espressione Liquid valida. Dettagli: {1}"
 
 #. updater.ModelState.AddModelError(Prefix, nameof(viewModel.Markdown), S["{0} field doesn't contain a valid Liquid expression. Details: {1}", fieldName, string.Join(" ", errors)]);
 #: OrchardCore.Markdown\Drivers\MarkdownFieldDriver.cs:105
@@ -25,37 +25,37 @@ msgid "{0} field doesn't contain a valid Liquid expression. Details: {1}"
 msgstr "Il campo {0} non contiene un'espressione Liquid valida. Dettagli: {1}"
 
 #. Description = S["Content stored as Markdown. You can also query the HTML interpreted version of Markdown."];
-#: OrchardCore.Markdown\GraphQL\MarkdownBodyQueryObjectType.cs:27
+#: OrchardCore.Markdown\GraphQL\MarkdownBodyQueryObjectType.cs:28
 msgctxt "OrchardCore.Markdown.GraphQL.MarkdownBodyQueryObjectType"
 msgid "Content stored as Markdown. You can also query the HTML interpreted version of Markdown."
 msgstr "Contenuto salvato come Markdown. Puoi anche interrogare la versione HTML del Markdown."
 
 #. .Description(S["the markdown value"]);
-#: OrchardCore.Markdown\GraphQL\MarkdownBodyQueryObjectType.cs:30
+#: OrchardCore.Markdown\GraphQL\MarkdownBodyQueryObjectType.cs:31
 msgctxt "OrchardCore.Markdown.GraphQL.MarkdownBodyQueryObjectType"
 msgid "the markdown value"
 msgstr "il valore markdown"
 
 #. .Description(S["the HTML representation of the markdown content"])
-#: OrchardCore.Markdown\GraphQL\MarkdownBodyQueryObjectType.cs:33
+#: OrchardCore.Markdown\GraphQL\MarkdownBodyQueryObjectType.cs:34
 msgctxt "OrchardCore.Markdown.GraphQL.MarkdownBodyQueryObjectType"
 msgid "the HTML representation of the markdown content"
 msgstr "la rappresentazione HTML del contenuto del markdown"
 
 #. Description = S["Content stored as Markdown. You can also query the HTML interpreted version of Markdown."];
-#: OrchardCore.Markdown\GraphQL\MarkdownFieldQueryObjectType.cs:29
+#: OrchardCore.Markdown\GraphQL\MarkdownFieldQueryObjectType.cs:30
 msgctxt "OrchardCore.Markdown.GraphQL.MarkdownFieldQueryObjectType"
 msgid "Content stored as Markdown. You can also query the HTML interpreted version of Markdown."
 msgstr "Contenuto salvato come Markdown. Puoi anche interrogare la versione HTML del Markdown."
 
 #. .Description(S["the markdown value"]);
-#: OrchardCore.Markdown\GraphQL\MarkdownFieldQueryObjectType.cs:32
+#: OrchardCore.Markdown\GraphQL\MarkdownFieldQueryObjectType.cs:33
 msgctxt "OrchardCore.Markdown.GraphQL.MarkdownFieldQueryObjectType"
 msgid "the markdown value"
 msgstr "il valore markdown"
 
 #. .Description(S["the HTML representation of the markdown content"])
-#: OrchardCore.Markdown\GraphQL\MarkdownFieldQueryObjectType.cs:35
+#: OrchardCore.Markdown\GraphQL\MarkdownFieldQueryObjectType.cs:36
 msgctxt "OrchardCore.Markdown.GraphQL.MarkdownFieldQueryObjectType"
 msgid "the HTML representation of the markdown content"
 msgstr "la rappresentazione HTML del contenuto del markdown"
@@ -90,7 +90,7 @@ msgctxt "OrchardCore.Markdown.Views.MarkdownBodyPart.Option"
 msgid "Standard"
 msgstr "Predefinito"
 
-#. <label class="custom-control-label" asp-for="SanitizeHtml">@T["Sanitize Html"]</label>
+#. <label class="form-check-label" asp-for="SanitizeHtml">@T["Sanitize Html"]</label>
 #: OrchardCore.Markdown\Views\MarkdownBodyPartSettings.Edit.cshtml:6
 msgctxt "OrchardCore.Markdown.Views.MarkdownBodyPartSettings.Edit"
 msgid "Sanitize Html"
@@ -106,7 +106,7 @@ msgstr "Se ripulisci l'Html del Markdown, gli script personalizzati verranno rim
 #: OrchardCore.Markdown\Views\MarkdownBodyPartSettings.Edit.cshtml:9
 msgctxt "OrchardCore.Markdown.Views.MarkdownBodyPartSettings.Edit"
 msgid "See documentation"
-msgstr ""
+msgstr "Vedi la documentazione"
 
 #. <option value="TextArea" selected="@(currentEditor == "TextArea")">@T["Multi-line"]</option>
 #: OrchardCore.Markdown\Views\MarkdownField-TextArea.Option.cshtml:4
@@ -144,7 +144,7 @@ msgctxt "OrchardCore.Markdown.Views.MarkdownFieldSettings.Edit"
 msgid "The hint text to display for this field on the editor."
 msgstr "Il testo del suggerimento da visualizzare per questo campo."
 
-#. <label class="custom-control-label" asp-for="SanitizeHtml">@T["Sanitize Html"]</label>
+#. <label class="form-check-label" asp-for="SanitizeHtml">@T["Sanitize Html"]</label>
 #: OrchardCore.Markdown\Views\MarkdownFieldSettings.Edit.cshtml:14
 msgctxt "OrchardCore.Markdown.Views.MarkdownFieldSettings.Edit"
 msgid "Sanitize Html"
@@ -160,7 +160,7 @@ msgstr "Se l'Html viene ripulito, tutti gli script personalizzati saranno rimoss
 #: OrchardCore.Markdown\Views\MarkdownFieldSettings.Edit.cshtml:17
 msgctxt "OrchardCore.Markdown.Views.MarkdownFieldSettings.Edit"
 msgid "See documentation"
-msgstr ""
+msgstr "Vedi la documentazione"
 
 #. <h5 class="modal-title">@T["Select Media"]</h5>
 #: OrchardCore.Markdown\Views\Media-MarkdownBodyPart.Modal.cshtml:7
@@ -169,13 +169,13 @@ msgid "Select Media"
 msgstr "Seleziona media"
 
 #. <button type="button" class="btn btn-primary" id="mediaMarkdownSelectButton">@T["OK"]</button>
-#: OrchardCore.Markdown\Views\Media-MarkdownBodyPart.Modal.cshtml:15
+#: OrchardCore.Markdown\Views\Media-MarkdownBodyPart.Modal.cshtml:13
 msgctxt "OrchardCore.Markdown.Views.Media-MarkdownBodyPart.Modal"
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
-#. <button type="button" class="btn btn-secondary" data-dismiss="modal">@T["Cancel"]</button>
-#: OrchardCore.Markdown\Views\Media-MarkdownBodyPart.Modal.cshtml:16
+#. <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">@T["Cancel"]</button>
+#: OrchardCore.Markdown\Views\Media-MarkdownBodyPart.Modal.cshtml:14
 msgctxt "OrchardCore.Markdown.Views.Media-MarkdownBodyPart.Modal"
 msgid "Cancel"
 msgstr "Annulla"

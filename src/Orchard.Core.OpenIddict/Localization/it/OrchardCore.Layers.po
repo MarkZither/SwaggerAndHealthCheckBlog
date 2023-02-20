@@ -10,13 +10,13 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language-Team: Italian\n"
 "Language: it_IT\n"
-"PO-Revision-Date: 2021-12-23 13:32\n"
+"PO-Revision-Date: 2022-10-11 20:14\n"
 
 #. .Add(S["Design"], design => design
 #: OrchardCore.Layers\AdminMenu.cs:26
 msgctxt "OrchardCore.Layers.AdminMenu"
 msgid "Design"
-msgstr ""
+msgstr "Design"
 
 #. .Add(S["Settings"], settings => settings
 #: OrchardCore.Layers\AdminMenu.cs:27
@@ -38,13 +38,13 @@ msgstr "Zone"
 #: OrchardCore.Layers\AdminMenu.cs:33
 msgctxt "OrchardCore.Layers.AdminMenu"
 msgid "Widgets"
-msgstr ""
+msgstr "Widgets"
 
 #. await _notifier.WarningAsync(H["The Widget content item with id {0} has no matching {1} content type definition.", widget.ContentItem.ContentItemId, widget.ContentItem.ContentType]);
 #: OrchardCore.Layers\Controllers\AdminController.cs:120
 msgctxt "OrchardCore.Layers.Controllers.AdminController"
 msgid "The Widget content item with id {0} has no matching {1} content type definition."
-msgstr ""
+msgstr "L'elemento di contenuto Widget con id {0} non ha alcuna definizione di tipo di contenuto corrispondente a {1}."
 
 #. await _notifier.SuccessAsync(H["Layer deleted successfully."]);
 #: OrchardCore.Layers\Controllers\AdminController.cs:276
@@ -71,28 +71,28 @@ msgid "The layer name already exists."
 msgstr "Un livello con questo nome esiste già."
 
 #. await _notifier.SuccessAsync(H["Condition added successfully."]);
-#: OrchardCore.Layers\Controllers\LayerRuleController.cs:134
+#: OrchardCore.Layers\Controllers\LayerRuleController.cs:130
 msgctxt "OrchardCore.Layers.Controllers.LayerRuleController"
 msgid "Condition added successfully."
-msgstr ""
+msgstr "Condizione aggiunta con successo."
 
 #. await _notifier.SuccessAsync(H["Condition updated successfully."]);
-#: OrchardCore.Layers\Controllers\LayerRuleController.cs:203
+#: OrchardCore.Layers\Controllers\LayerRuleController.cs:199
 msgctxt "OrchardCore.Layers.Controllers.LayerRuleController"
 msgid "Condition updated successfully."
-msgstr ""
+msgstr "Condizioni aggiornate con successo."
 
 #. await _notifier.ErrorAsync(H["The condition has validation errors."]);
-#: OrchardCore.Layers\Controllers\LayerRuleController.cs:207
+#: OrchardCore.Layers\Controllers\LayerRuleController.cs:203
 msgctxt "OrchardCore.Layers.Controllers.LayerRuleController"
 msgid "The condition has validation errors."
-msgstr ""
+msgstr "La condizione ha degli errori di validazione."
 
 #. await _notifier.SuccessAsync(H["Condition deleted successfully."]);
-#: OrchardCore.Layers\Controllers\LayerRuleController.cs:241
+#: OrchardCore.Layers\Controllers\LayerRuleController.cs:237
 msgctxt "OrchardCore.Layers.Controllers.LayerRuleController"
 msgid "Condition deleted successfully."
-msgstr ""
+msgstr "Condizione cancellata con successo."
 
 #. context.Updater.ModelState.AddModelError(Prefix, "LayerMetadata.Zone", S["Zone is missing"]);
 #: OrchardCore.Layers\Drivers\LayerMetadataWelder.cs:77
@@ -104,10 +104,10 @@ msgstr "Zona mancante"
 #: OrchardCore.Layers\Drivers\LayerMetadataWelder.cs:82
 msgctxt "OrchardCore.Layers.Drivers.LayerMetadataWelder"
 msgid "Layer is missing"
-msgstr ""
+msgstr "Layer mancante"
 
 #. Description = S["Site layers define the rules and zone placement for widgets."],
-#: OrchardCore.Layers\GraphQL\SiteLayersQuery.cs:30
+#: OrchardCore.Layers\GraphQL\SiteLayersQuery.cs:31
 msgctxt "OrchardCore.Layers.GraphQL.SiteLayersQuery"
 msgid "Site layers define the rules and zone placement for widgets."
 msgstr "I livelli del sito definiscono le regole e la zona di posizionamento dei widget."
@@ -118,7 +118,7 @@ msgctxt "OrchardCore.Layers.Views.LayerMetadata.Edit"
 msgid "Title"
 msgstr "Titolo"
 
-#. <label class="custom-control-label" asp-for="LayerMetadata.RenderTitle">@T["Render title"]</label>
+#. <label class="form-check-label" asp-for="LayerMetadata.RenderTitle">@T["Render title"]</label>
 #: OrchardCore.Layers\Views\LayerMetadata.Edit.cshtml:12
 msgctxt "OrchardCore.Layers.Views.LayerMetadata.Edit"
 msgid "Render title"
@@ -194,7 +194,7 @@ msgstr "Descrizione"
 #: OrchardCore.Layers\Views\Admin\Edit.cshtml:31
 msgctxt "OrchardCore.Layers.Views.Admin.Edit"
 msgid "Error updating rule order"
-msgstr ""
+msgstr "Errore nell'aggiornamento dell'ordine delle regole"
 
 #. <input class="button mt-3" type="submit" value="@T["Save"]" />
 #: OrchardCore.Layers\Views\Admin\Edit.cshtml:35
@@ -203,85 +203,85 @@ msgid "Save"
 msgstr "Salva"
 
 #. <zone Name="Title"><h1>@RenderTitleSegments(T["Edit Widgets and Layers"])</h1></zone>
-#: OrchardCore.Layers\Views\Admin\Index.cshtml:15
+#: OrchardCore.Layers\Views\Admin\Index.cshtml:16
 msgctxt "OrchardCore.Layers.Views.Admin.Index"
 msgid "Edit Widgets and Layers"
 msgstr "Modifica Widget e Livelli"
 
 #. @T["Widget successfully moved. <a href=\"javascript:console.log('submit');$('#undo-form').submit();\"><strong>Undo</strong></a>."]
-#: OrchardCore.Layers\Views\Admin\Index.cshtml:22
+#: OrchardCore.Layers\Views\Admin\Index.cshtml:20
 msgctxt "OrchardCore.Layers.Views.Admin.Index"
 msgid "Widget successfully moved. <a href=\"javascript:console.log('submit');$('#undo-form').submit();\"><strong>Undo</strong></a>."
 msgstr "Widget spostato con successo. <a href=\"javascript:console.log('submit');$('#undo-form').submit();\">Annulla<strong></strong></a>."
 
 #. <h3>@T["Zones"]</h3>
-#: OrchardCore.Layers\Views\Admin\Index.cshtml:31
+#: OrchardCore.Layers\Views\Admin\Index.cshtml:29
 msgctxt "OrchardCore.Layers.Views.Admin.Index"
 msgid "Zones"
 msgstr "Zone"
 
 #. <p class="alert alert-warning">@T["Please <a href=\"{0}\">define the available zones</a> before adding Widgets", Url.Action("Index", "Admin", new { area = "OrchardCore.Settings", groupId = LayerSiteSettingsDisplayDriver.GroupId })]</p>
-#: OrchardCore.Layers\Views\Admin\Index.cshtml:35
+#: OrchardCore.Layers\Views\Admin\Index.cshtml:33
 msgctxt "OrchardCore.Layers.Views.Admin.Index"
 msgid "Please <a href=\"{0}\">define the available zones</a> before adding Widgets"
 msgstr "Per favore, <a href=\"{0}\">indica una zona</a> prima di aggiungere dei widget"
 
 #. @T["Add Widget"]
-#: OrchardCore.Layers\Views\Admin\Index.cshtml:81
+#: OrchardCore.Layers\Views\Admin\Index.cshtml:79
 msgctxt "OrchardCore.Layers.Views.Admin.Index"
 msgid "Add Widget"
 msgstr "Aggiungi Widget"
 
 #. <span>@T["No widgets found."]</span>
-#: OrchardCore.Layers\Views\Admin\Index.cshtml:102
+#: OrchardCore.Layers\Views\Admin\Index.cshtml:100
 msgctxt "OrchardCore.Layers.Views.Admin.Index"
 msgid "No widgets found."
-msgstr ""
+msgstr "Non sono stati trovati widget."
 
 #. <span>@T["No layers found."]</span>
-#: OrchardCore.Layers\Views\Admin\Index.cshtml:107
+#: OrchardCore.Layers\Views\Admin\Index.cshtml:105
 msgctxt "OrchardCore.Layers.Views.Admin.Index"
 msgid "No layers found."
-msgstr ""
+msgstr "Non sono stati trovati layer."
 
 #. <h3>@T["Layers"]</h3>
-#: OrchardCore.Layers\Views\Admin\Index.cshtml:116
+#: OrchardCore.Layers\Views\Admin\Index.cshtml:114
 msgctxt "OrchardCore.Layers.Views.Admin.Index"
 msgid "Layers"
 msgstr "Livelli"
 
 #. @T["Select a layer to reveal its associated widgets."]
-#: OrchardCore.Layers\Views\Admin\Index.cshtml:119
+#: OrchardCore.Layers\Views\Admin\Index.cshtml:117
 msgctxt "OrchardCore.Layers.Views.Admin.Index"
 msgid "Select a layer to reveal its associated widgets."
 msgstr "Seleziona un layer per mostrare i widget associati."
 
 #. <a class="seedoc" href="@(OrchardCore.Admin.Constants.DocsUrl)reference/modules/Layers/#rules" target="_blank">@T["See documentation"]</a>
-#: OrchardCore.Layers\Views\Admin\Index.cshtml:120
+#: OrchardCore.Layers\Views\Admin\Index.cshtml:118
 msgctxt "OrchardCore.Layers.Views.Admin.Index"
 msgid "See documentation"
-msgstr ""
+msgstr "Vedi la documentazione"
 
 #. <a class="btn btn-primary btn-sm" href="@Url.Action("Edit", "Admin", new { area = "OrchardCore.Layers", name = layer.Name })">@T["Edit"]</a>
-#: OrchardCore.Layers\Views\Admin\Index.cshtml:135
+#: OrchardCore.Layers\Views\Admin\Index.cshtml:133
 msgctxt "OrchardCore.Layers.Views.Admin.Index"
 msgid "Edit"
 msgstr "Modifica"
 
 #. <a class="btn btn-danger btn-sm" href="@Url.Action("Delete", "Admin", new { area = "OrchardCore.Layers", name = layer.Name })" data-url-af="RemoveUrl UnsafeUrl">@T["Delete"]</a>
-#: OrchardCore.Layers\Views\Admin\Index.cshtml:136
+#: OrchardCore.Layers\Views\Admin\Index.cshtml:134
 msgctxt "OrchardCore.Layers.Views.Admin.Index"
 msgid "Delete"
 msgstr "Elimina"
 
 #. <p class="alert alert-warning">@T["Please <a href=\"{0}\">create a layer</a> before adding Widgets", Url.Action("Create", "Admin", new { area = "OrchardCore.Layers" })]</p>
-#: OrchardCore.Layers\Views\Admin\Index.cshtml:149
+#: OrchardCore.Layers\Views\Admin\Index.cshtml:147
 msgctxt "OrchardCore.Layers.Views.Admin.Index"
 msgid "Please <a href=\"{0}\">create a layer</a> before adding Widgets"
 msgstr "Per favore, <a href=\"{0}\">crea un livello</a> prima di aggiungere dei widget"
 
 #. <a class="button btn-sm" href="@Url.Action("Create", "Admin", new { area = "OrchardCore.Layers" })">@T["Add"]</a>
-#: OrchardCore.Layers\Views\Admin\Index.cshtml:152
+#: OrchardCore.Layers\Views\Admin\Index.cshtml:150
 msgctxt "OrchardCore.Layers.Views.Admin.Index"
 msgid "Add"
 msgstr "Aggiungi"
@@ -320,29 +320,29 @@ msgstr "Esporta tutti i livelli."
 #: OrchardCore.Layers\Views\LayerRule\Create.cshtml:3
 msgctxt "OrchardCore.Layers.Views.LayerRule.Create"
 msgid "Create Rule"
-msgstr ""
+msgstr "Crea regola"
 
 #. <button class="btn btn-primary create" type="submit">@T["Create"]</button>
 #: OrchardCore.Layers\Views\LayerRule\Create.cshtml:14
 msgctxt "OrchardCore.Layers.Views.LayerRule.Create"
 msgid "Create"
-msgstr ""
+msgstr "Crea"
 
 #. <a class="btn btn-secondary cancel" role="button" asp-route-action="Edit" asp-route-controller="Admin" asp-route-name="@Model.Name">@T["Cancel"]</a>
 #: OrchardCore.Layers\Views\LayerRule\Create.cshtml:15
 msgctxt "OrchardCore.Layers.Views.LayerRule.Create"
 msgid "Cancel"
-msgstr ""
+msgstr "Annulla"
 
 #. <zone Name="Title"><h1>@RenderTitleSegments(T["Edit Rule"])</h1></zone>
 #: OrchardCore.Layers\Views\LayerRule\Edit.cshtml:3
 msgctxt "OrchardCore.Layers.Views.LayerRule.Edit"
 msgid "Edit Rule"
-msgstr ""
+msgstr "Modifica Regola"
 
 #. <button class="btn btn-primary save" type="submit">@T["Save"]</button>
 #: OrchardCore.Layers\Views\LayerRule\Edit.cshtml:13
 msgctxt "OrchardCore.Layers.Views.LayerRule.Edit"
 msgid "Save"
-msgstr ""
+msgstr "Salva"
 

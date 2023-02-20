@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language-Team: Greek\n"
 "Language: el_GR\n"
-"PO-Revision-Date: 2021-11-30 16:02\n"
+"PO-Revision-Date: 2022-05-05 19:04\n"
 
 #. builder.Add(S["Security"], security => security
 #: OrchardCore.Microsoft.Authentication\AdminMenu.cs:24
@@ -184,7 +184,7 @@ msgctxt "OrchardCore.Microsoft.Authentication.Views.AzureADSettings.Edit"
 msgid "The request path within the application's base path where the user-agent will be returned. The middleware will process this request when it arrives."
 msgstr "Η διαδρομή αιτήματος μέσα στη βασική διαδρομή της εφαρμογής όπου θα επιστραφεί ο user-agent. Το middleware λογισμικό θα επεξεργαστεί αυτό το αίτημα όταν φθάνει."
 
-#. <label class="custom-control-label" asp-for="SaveTokens">@T["Store tokens"]</label>
+#. <label class="form-check-label" asp-for="SaveTokens">@T["Store tokens"]</label>
 #: OrchardCore.Microsoft.Authentication\Views\AzureADSettings.Edit.cshtml:42
 msgctxt "OrchardCore.Microsoft.Authentication.Views.AzureADSettings.Edit"
 msgid "Store tokens"
@@ -212,7 +212,7 @@ msgstr "Δείτε την τεκμηρίωση"
 #: OrchardCore.Microsoft.Authentication\Views\MicrosoftAccountSettings.Edit.cshtml:11
 msgctxt "OrchardCore.Microsoft.Authentication.Views.MicrosoftAccountSettings.Edit"
 msgid "An error occurred while decrypting a setting. Please apply and save."
-msgstr ""
+msgstr "Παρουσιάστηκε σφάλμα κατά την αποκρυπτογράφηση μιας ρύθμισης. Κάντε αίτηση και αποθηκεύστε."
 
 #. <h3>@T["Microsoft Account Authentication Settings"]</h3>
 #: OrchardCore.Microsoft.Authentication\Views\MicrosoftAccountSettings.Edit.cshtml:14
@@ -256,7 +256,7 @@ msgctxt "OrchardCore.Microsoft.Authentication.Views.MicrosoftAccountSettings.Edi
 msgid "The request path within the application's base path where the user-agent will be returned. The middleware will process this request when it arrives."
 msgstr "Η διαδρομή αιτήματος μέσα στη βασική διαδρομή της εφαρμογής όπου θα επιστραφεί ο user-agent. Το middleware λογισμικό θα επεξεργαστεί αυτό το αίτημα όταν φθάνει."
 
-#. <label class="custom-control-label" asp-for="SaveTokens">@T["Store tokens"]</label>
+#. <label class="form-check-label" asp-for="SaveTokens">@T["Store tokens"]</label>
 #: OrchardCore.Microsoft.Authentication\Views\MicrosoftAccountSettings.Edit.cshtml:40
 msgctxt "OrchardCore.Microsoft.Authentication.Views.MicrosoftAccountSettings.Edit"
 msgid "Store tokens"
@@ -296,7 +296,7 @@ msgstr "Ρυθμίσεις Azure AD"
 #: OrchardCore.Microsoft.Authentication\Views\Items\AzureADDeploymentStep.Summary.cshtml:5
 msgctxt "OrchardCore.Microsoft.Authentication.Views.Items.AzureADDeploymentStep.Summary"
 msgid "Adds Azure AD settings to the plan."
-msgstr ""
+msgstr "Προσθέτει ρυθμίσεις Azure AD στο σχέδιο."
 
 #. <h4 class="card-title">@T["Azure AD Settings"]</h4>
 #: OrchardCore.Microsoft.Authentication\Views\Items\AzureADDeploymentStep.Thumbnail.cshtml:3
