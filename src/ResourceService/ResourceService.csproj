@@ -32,7 +32,7 @@
     <PackageReference Include="Services.Shared" Version="1.1.2-prerelease" />
     <PackageReference Include="AspNetCore.HealthChecks.UI" Version="$(AspNetCoreHealthChecksUIVersion)" />
     <PackageReference Include="AspNetCore.HealthChecks.UI.Client" Version="$(AspNetCoreHealthChecksUIVersion)" />
-    <PackageReference Include="AspNetCore.HealthChecks.System" Version="$(AspNetCoreHealthChecksVersion)" />
+    <PackageReference Include="AspNetCore.HealthChecks.System" Version="$(AspNetCoreHealthChecksSystemVersion)" />
     <PackageReference Include="AspNetCore.HealthChecks.Network" Version="$(AspNetCoreHealthChecksVersion)" />
     <PackageReference Include="Newtonsoft.Json" Version="$(NewtonsoftVersion)" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="$(SwashbuckleVersion)" />

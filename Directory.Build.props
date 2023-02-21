@@ -34,6 +34,7 @@
     <MicrosoftExtensionsHealthEFCorePackageVersion>6.0.1</MicrosoftExtensionsHealthEFCorePackageVersion>
     <NuGetPackageVersion>5.4.0</NuGetPackageVersion>
     <AspNetCoreHealthChecksVersion>6.0.4</AspNetCoreHealthChecksVersion>
+    <AspNetCoreHealthChecksSystemVersion>6.0.5</AspNetCoreHealthChecksSystemVersion>
     <AspNetCoreHealthChecksSqlServerVersion>6.0.2</AspNetCoreHealthChecksSqlServerVersion>
     <AspNetCoreHealthChecksIdSrvVersion>6.0.2</AspNetCoreHealthChecksIdSrvVersion>
     <AspNetCoreHealthChecksUIVersion>6.0.5</AspNetCoreHealthChecksUIVersion>
