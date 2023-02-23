@@ -32,6 +32,7 @@
     <MicrosoftExtensionsPackageVersion>7.0.0</MicrosoftExtensionsPackageVersion>
     <MicrosoftExtensionsPollyPackageVersion>7.0.3</MicrosoftExtensionsPollyPackageVersion>
     <MicrosoftExtensionsHealthEFCorePackageVersion>7.0.3</MicrosoftExtensionsHealthEFCorePackageVersion>
+    <ContainersToolsTargetsVersion>1.17.2</ContainersToolsTargetsVersion>
     <NuGetPackageVersion>5.4.0</NuGetPackageVersion>
     <AspNetCoreHealthChecksVersion>6.0.4</AspNetCoreHealthChecksVersion>
     <AspNetCoreHealthChecksSystemVersion>6.0.5</AspNetCoreHealthChecksSystemVersion>
