@@ -1,0 +1,15 @@
+version: '3.4'
+
+services:
+  duendeloginservice:
+    image: ${DOCKER_REGISTRY-}duendeloginservice
+    build:
+      context: .
+      dockerfile: src/DuendeLoginService/Dockerfile
+
+  loggingservice:
+    image: ${DOCKER_REGISTRY-}loggingservice
+    build:
+      context: .
+      dockerfile: src/LoggingService/Dockerfile
+
