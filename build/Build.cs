@@ -45,7 +45,6 @@ using static Nuke.Common.Tools.DotNet.DotNetTasks;
         //    }
         )]
 [TeamCity(
-    TeamCityAgentPlatform.Unix,
     Version = "2020.1",
     VcsTriggeredTargets = new[] { nameof(Pack), nameof(Test) },
     NightlyTriggeredTargets = new[] { nameof(ExecuteCLI) },

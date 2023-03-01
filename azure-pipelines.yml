@@ -25,6 +25,18 @@ stages:
         displayName: 'Test'
         dependsOn: [  ]
         steps:
+          - task: Cache@2
+            displayName: Cache (nuke-temp)
+            inputs:
+              key: $(Agent.OS) | nuke-temp | **/global.json, **/*.csproj
+              restoreKeys: $(Agent.OS) | nuke-temp
+              path: .nuke/temp
+          - task: Cache@2
+            displayName: Cache (nuget-packages)
+            inputs:
+              key: $(Agent.OS) | nuget-packages | **/global.json, **/*.csproj
+              restoreKeys: $(Agent.OS) | nuget-packages
+              path: $(HOME)/.nuget/packages
           - task: CmdLine@2
             inputs:
               script: './build.cmd Test --skip'
@@ -32,6 +44,18 @@ stages:
         displayName: 'Compile'
         dependsOn: [  ]
         steps:
+          - task: Cache@2
+            displayName: Cache (nuke-temp)
+            inputs:
+              key: $(Agent.OS) | nuke-temp | **/global.json, **/*.csproj
+              restoreKeys: $(Agent.OS) | nuke-temp
+              path: .nuke/temp
+          - task: Cache@2
+            displayName: Cache (nuget-packages)
+            inputs:
+              key: $(Agent.OS) | nuget-packages | **/global.json, **/*.csproj
+              restoreKeys: $(Agent.OS) | nuget-packages
+              path: $(HOME)/.nuget/packages
           - task: CmdLine@2
             inputs:
               script: './build.cmd Restore Compile --skip'
@@ -39,6 +63,18 @@ stages:
         displayName: 'Pack'
         dependsOn: [ Compile ]
         steps:
+          - task: Cache@2
+            displayName: Cache (nuke-temp)
+            inputs:
+              key: $(Agent.OS) | nuke-temp | **/global.json, **/*.csproj
+              restoreKeys: $(Agent.OS) | nuke-temp
+              path: .nuke/temp
+          - task: Cache@2
+            displayName: Cache (nuget-packages)
+            inputs:
+              key: $(Agent.OS) | nuget-packages | **/global.json, **/*.csproj
+              restoreKeys: $(Agent.OS) | nuget-packages
+              path: $(HOME)/.nuget/packages
           - task: CmdLine@2
             inputs:
               script: './build.cmd Pack --skip'
@@ -56,6 +92,18 @@ stages:
         displayName: 'Test'
         dependsOn: [  ]
         steps:
+          - task: Cache@2
+            displayName: Cache (nuke-temp)
+            inputs:
+              key: $(Agent.OS) | nuke-temp | **/global.json, **/*.csproj
+              restoreKeys: $(Agent.OS) | nuke-temp
+              path: .nuke/temp
+          - task: Cache@2
+            displayName: Cache (nuget-packages)
+            inputs:
+              key: $(Agent.OS) | nuget-packages | **/global.json, **/*.csproj
+              restoreKeys: $(Agent.OS) | nuget-packages
+              path: $(USERPROFILE)/.nuget/packages
           - task: CmdLine@2
             inputs:
               script: './build.cmd Test --skip'
@@ -63,6 +111,18 @@ stages:
         displayName: 'Compile'
         dependsOn: [  ]
         steps:
+          - task: Cache@2
+            displayName: Cache (nuke-temp)
+            inputs:
+              key: $(Agent.OS) | nuke-temp | **/global.json, **/*.csproj
+              restoreKeys: $(Agent.OS) | nuke-temp
+              path: .nuke/temp
+          - task: Cache@2
+            displayName: Cache (nuget-packages)
+            inputs:
+              key: $(Agent.OS) | nuget-packages | **/global.json, **/*.csproj
+              restoreKeys: $(Agent.OS) | nuget-packages
+              path: $(USERPROFILE)/.nuget/packages
           - task: CmdLine@2
             inputs:
               script: './build.cmd Restore Compile --skip'
@@ -70,6 +130,18 @@ stages:
         displayName: 'Pack'
         dependsOn: [ Compile ]
         steps:
+          - task: Cache@2
+            displayName: Cache (nuke-temp)
+            inputs:
+              key: $(Agent.OS) | nuke-temp | **/global.json, **/*.csproj
+              restoreKeys: $(Agent.OS) | nuke-temp
+              path: .nuke/temp
+          - task: Cache@2
+            displayName: Cache (nuget-packages)
+            inputs:
+              key: $(Agent.OS) | nuget-packages | **/global.json, **/*.csproj
+              restoreKeys: $(Agent.OS) | nuget-packages
+              path: $(USERPROFILE)/.nuget/packages
           - task: CmdLine@2
             inputs:
               script: './build.cmd Pack --skip'
@@ -87,6 +159,18 @@ stages:
         displayName: 'Test'
         dependsOn: [  ]
         steps:
+          - task: Cache@2
+            displayName: Cache (nuke-temp)
+            inputs:
+              key: $(Agent.OS) | nuke-temp | **/global.json, **/*.csproj
+              restoreKeys: $(Agent.OS) | nuke-temp
+              path: .nuke/temp
+          - task: Cache@2
+            displayName: Cache (nuget-packages)
+            inputs:
+              key: $(Agent.OS) | nuget-packages | **/global.json, **/*.csproj
+              restoreKeys: $(Agent.OS) | nuget-packages
+              path: $(HOME)/.nuget/packages
           - task: CmdLine@2
             inputs:
               script: './build.cmd Test --skip'
@@ -94,6 +178,18 @@ stages:
         displayName: 'Compile'
         dependsOn: [  ]
         steps:
+          - task: Cache@2
+            displayName: Cache (nuke-temp)
+            inputs:
+              key: $(Agent.OS) | nuke-temp | **/global.json, **/*.csproj
+              restoreKeys: $(Agent.OS) | nuke-temp
+              path: .nuke/temp
+          - task: Cache@2
+            displayName: Cache (nuget-packages)
+            inputs:
+              key: $(Agent.OS) | nuget-packages | **/global.json, **/*.csproj
+              restoreKeys: $(Agent.OS) | nuget-packages
+              path: $(HOME)/.nuget/packages
           - task: CmdLine@2
             inputs:
               script: './build.cmd Restore Compile --skip'
@@ -101,6 +197,18 @@ stages:
         displayName: 'Pack'
         dependsOn: [ Compile ]
         steps:
+          - task: Cache@2
+            displayName: Cache (nuke-temp)
+            inputs:
+              key: $(Agent.OS) | nuke-temp | **/global.json, **/*.csproj
+              restoreKeys: $(Agent.OS) | nuke-temp
+              path: .nuke/temp
+          - task: Cache@2
+            displayName: Cache (nuget-packages)
+            inputs:
+              key: $(Agent.OS) | nuget-packages | **/global.json, **/*.csproj
+              restoreKeys: $(Agent.OS) | nuget-packages
+              path: $(HOME)/.nuget/packages
           - task: CmdLine@2
             inputs:
               script: './build.cmd Pack --skip'

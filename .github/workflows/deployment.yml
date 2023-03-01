@@ -20,13 +20,20 @@ on:
   push:
     branches:
       - trunk
-      - release/*
+      - 'release/*'
 
 jobs:
-  macOS-latest:
-    name: macOS-latest
-    runs-on: macOS-latest
+  macos-latest:
+    name: macos-latest
+    runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v3
+      - name: Cache .nuke/temp, ~/.nuget/packages
+        uses: actions/cache@v3
+        with:
+          path: |
+            .nuke/temp
+            ~/.nuget/packages
+          key: ${{ runner.os }}-${{ hashFiles('**/global.json', '**/*.csproj') }}
       - name: Run './build.cmd Publish'
         run: ./build.cmd Publish
