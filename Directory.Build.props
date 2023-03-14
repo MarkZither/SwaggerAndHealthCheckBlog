@@ -42,7 +42,7 @@
     <SwashbuckleVersion>6.5.0</SwashbuckleVersion>
     <ServicesSharedVersion>1.1.2-prerelease</ServicesSharedVersion>
     <VSContainersVersion>1.10.9</VSContainersVersion>
-    <NewtonsoftVersion>13.0.2</NewtonsoftVersion>
+    <NewtonsoftVersion>13.0.3</NewtonsoftVersion>
     <NLogVersion>5.1.2</NLogVersion>
     <NLogWebVersion>5.2.2</NLogWebVersion>
     <SerilogPackageVersion>3.1.0</SerilogPackageVersion>
