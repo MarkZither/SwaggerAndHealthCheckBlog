@@ -30,8 +30,8 @@
     <MicrosoftAspNetCorePackageVersion>7.0.10</MicrosoftAspNetCorePackageVersion>
     <MicrosoftEntityFrameworkCorePackageVersion>7.0.10</MicrosoftEntityFrameworkCorePackageVersion>
     <MicrosoftExtensionsPackageVersion>7.0.0</MicrosoftExtensionsPackageVersion>
-    <MicrosoftExtensionsPollyPackageVersion>7.0.4</MicrosoftExtensionsPollyPackageVersion>
-    <MicrosoftExtensionsHealthEFCorePackageVersion>7.0.4</MicrosoftExtensionsHealthEFCorePackageVersion>
+    <MicrosoftExtensionsPollyPackageVersion>7.0.5</MicrosoftExtensionsPollyPackageVersion>
+    <MicrosoftExtensionsHealthEFCorePackageVersion>7.0.5</MicrosoftExtensionsHealthEFCorePackageVersion>
     <ContainersToolsTargetsVersion>1.18.1</ContainersToolsTargetsVersion>
     <NuGetPackageVersion>5.4.0</NuGetPackageVersion>
     <AspNetCoreHealthChecksVersion>6.0.4</AspNetCoreHealthChecksVersion>
