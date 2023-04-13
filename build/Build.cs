@@ -21,7 +21,6 @@ using static Nuke.Common.IO.FileSystemTasks;
 using static Nuke.Common.IO.PathConstruction;
 using static Nuke.Common.Tools.DotNet.DotNetTasks;
 
-[CheckBuildProjectConfigurations]
 [UnsetVisualStudioEnvironmentVariables]
 [DotNetVerbosityMapping]
 [ShutdownDotNetAfterServerBuild]
@@ -135,7 +134,7 @@ partial class Build : NukeBuild
     Target Test => _ => _
         .Executes(() =>
         {
-            Logger.Log(LogLevel.Normal, "Test");
+            Serilog.Log.Information("Test");
         });
 
     string ChangelogFile => RootDirectory / "CHANGELOG.md";
@@ -146,7 +145,7 @@ partial class Build : NukeBuild
         .Produces(PackageDirectory / "*.nupkg")
         .Executes(() =>
         {
-            Logger.Log(LogLevel.Normal, "Pack");
+            Serilog.Log.Information("Pack");
             DotNetPack(_ => _
                 .SetProject(Solution)
                 .SetNoBuild(InvokedTargets.Contains(Compile))
@@ -159,19 +158,19 @@ partial class Build : NukeBuild
     Target Coverage => _ => _
     .Executes(() =>
     {
-        Logger.Log(LogLevel.Normal, "Coverage");
+        Serilog.Log.Information("Coverage");
     });
 
     Target SignPackages => _ => _
     .Executes(() =>
     {
-        Logger.Log(LogLevel.Normal, "SignPackages");
+        Serilog.Log.Information("SignPackages");
     });
 
     Target Publish => _ => _
     .Executes(() =>
     {
-        Logger.Log(LogLevel.Normal, "Publish");
+        Serilog.Log.Information("Publish");
     });
     Target PublishCLI => _ => _
         .DependsOn(Restore)
@@ -189,6 +188,6 @@ partial class Build : NukeBuild
      {
          var someDir = RootDirectory / "SomeStuff";
          SampleConsole(@"--someDir '{someDir}'");
-         Logger.Info("The stuff just happened?");
+         Serilog.Log.Information("The stuff just happened?");
      });
 }

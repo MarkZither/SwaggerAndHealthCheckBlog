@@ -43,7 +43,7 @@ partial class Build
         .Executes(() =>
         {
             FontFiles.ForEach(x => FontCollection.Install(x));
-            FontCollection.Families.ForEach(x => Normal($"Installed font {x.Name.SingleQuote()}"));
+            FontCollection.Families.ForEach(x => Serilog.Log.Debug($"Installed font {x.Name.SingleQuote()}"));
         });
 
     AbsolutePath WatermarkImageFile => RootDirectory / "images" / "logo-watermark.png";
