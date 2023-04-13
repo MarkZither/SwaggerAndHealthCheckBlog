@@ -35,11 +35,11 @@ namespace ChaosResilientService.Controllers
         [HttpGet]
         public async Task<ActionResult<MonitoringResults>> Get()
         {
-            Context context = new Context(nameof(FilePolicy)).WithChaosSettings(chaosSettings);
+            var context = new Context(nameof(FilePolicy)).WithChaosSettings(chaosSettings);
 
-            string text = System.IO.File.ReadAllText(@"TestFile.txt");
+            var text = System.IO.File.ReadAllText(@"TestFile.txt");
 
-            return Ok();
+            return await Task.FromResult(Ok());
         }
     }
 }
