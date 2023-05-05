@@ -43,7 +43,7 @@
     <ServicesSharedVersion>1.1.2-prerelease</ServicesSharedVersion>
     <VSContainersVersion>1.10.9</VSContainersVersion>
     <NewtonsoftVersion>13.0.3</NewtonsoftVersion>
-    <NLogVersion>5.1.3</NLogVersion>
+    <NLogVersion>5.1.4</NLogVersion>
     <NLogWebVersion>5.2.3</NLogWebVersion>
     <SerilogPackageVersion>3.1.0</SerilogPackageVersion>
   </PropertyGroup>
