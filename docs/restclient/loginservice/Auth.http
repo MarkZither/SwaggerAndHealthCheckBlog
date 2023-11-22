@@ -1,4 +1,4 @@
-@baseUrl = https://localhost:1116
+@baseUrl = https://localhost:1115
 
 # @name loginClient
 POST {{baseUrl}}/connect/token HTTP/1.1
@@ -18,17 +18,46 @@ POST {{baseUrl}}/connect/token HTTP/1.1
 content-type: application/x-www-form-urlencoded
 Accept: application/json
 
-grant_type=authorization_code
-&code=21565AB0
-&redirect_uri=https://localhost:7082/swagger/oauth2-redirect.html
-&client_id=demo_api_swagger
+grant_type=PKCE
+&client_id=demo_api_no_PKCE
 &client_secret=secret
 &scope=api1
-&code_verifier=uff97hxYDqnqmEWY19Kk5oXWPUvUX-ekRoaZqCMAEnE
 ###
 @authToken = {{login.response.body.access_token}}
 
-# @name Diagnostics
+# @name DoNotUseImplicitLogin
+POST {{baseUrl}}/connect/token HTTP/1.1
+content-type: application/x-www-form-urlencoded
+Accept: application/json
+
+grant_type=authorization_code
+&client_id=ro.client
+&scope=api1
+###
+@authToken = {{DoNotUseImplicitLogin.response.body.access_token}}
+
+# @name ResourceOwnerPasswordLogin
+POST {{baseUrl}}/connect/token HTTP/1.1
+content-type: application/x-www-form-urlencoded
+Accept: application/json
+
+grant_type=password
+&client_id=ro.client
+&client_id=ro.client
+&client_secret=secret
+&username=bob
+&password=Pass123$
+&scope=api1
+###
+@passwordAuthToken = {{ResourceOwnerPasswordLogin.response.body.access_token}}
+
+# @name DiagnosticsAPI
 POST {{baseUrl}}/Diagnostics/IndexApi HTTP/1.1
-Authorization: Bearer {{authToken}}
+Authorization: Bearer {{ResourceOwnerPasswordLogin}}
+Content-Type: application/json
+
+###
+# @name Diagnostics
+POST {{baseUrl}}/Diagnostics/Index HTTP/1.1
+Authorization: Bearer {{passwordAuthToken}}
 Content-Type: application/json
