@@ -1,2 +1,0 @@
-# Orchard.Core.OpenIddict
-
