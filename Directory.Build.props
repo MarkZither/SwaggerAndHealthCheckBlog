@@ -27,9 +27,9 @@
 
   <!-- NuGet dependencies shared across projects -->
   <PropertyGroup>
-    <MicrosoftAspNetCorePackageVersion>7.0.10</MicrosoftAspNetCorePackageVersion>
-    <MicrosoftEntityFrameworkCorePackageVersion>7.0.10</MicrosoftEntityFrameworkCorePackageVersion>
-    <MicrosoftExtensionsPackageVersion>7.0.0</MicrosoftExtensionsPackageVersion>
+    <MicrosoftAspNetCorePackageVersion>8.0.0</MicrosoftAspNetCorePackageVersion>
+    <MicrosoftEntityFrameworkCorePackageVersion>8.0.0</MicrosoftEntityFrameworkCorePackageVersion>
+    <MicrosoftExtensionsPackageVersion>8.0.0</MicrosoftExtensionsPackageVersion>
     <MicrosoftExtensionsPollyPackageVersion>7.0.5</MicrosoftExtensionsPollyPackageVersion>
     <MicrosoftExtensionsHealthEFCorePackageVersion>7.0.5</MicrosoftExtensionsHealthEFCorePackageVersion>
     <ContainersToolsTargetsVersion>1.18.1</ContainersToolsTargetsVersion>
