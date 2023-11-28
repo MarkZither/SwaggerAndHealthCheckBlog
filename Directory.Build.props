@@ -27,6 +27,7 @@
 
   <!-- NuGet dependencies shared across projects -->
   <PropertyGroup>
+    <FinbuckleVersion>6.12.0</FinbuckleVersion>
     <MicrosoftAspNetCorePackageVersion>8.0.0</MicrosoftAspNetCorePackageVersion>
     <MicrosoftEntityFrameworkCorePackageVersion>8.0.0</MicrosoftEntityFrameworkCorePackageVersion>
     <MicrosoftExtensionsPackageVersion>8.0.0</MicrosoftExtensionsPackageVersion>
