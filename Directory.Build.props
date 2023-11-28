@@ -31,14 +31,14 @@
     <MicrosoftEntityFrameworkCorePackageVersion>8.0.0</MicrosoftEntityFrameworkCorePackageVersion>
     <MicrosoftExtensionsPackageVersion>8.0.0</MicrosoftExtensionsPackageVersion>
     <MicrosoftExtensionsPollyPackageVersion>7.0.5</MicrosoftExtensionsPollyPackageVersion>
-    <MicrosoftExtensionsHealthEFCorePackageVersion>7.0.5</MicrosoftExtensionsHealthEFCorePackageVersion>
+    <MicrosoftExtensionsHealthEFCorePackageVersion>8.0.0</MicrosoftExtensionsHealthEFCorePackageVersion>
     <ContainersToolsTargetsVersion>1.18.1</ContainersToolsTargetsVersion>
     <NuGetPackageVersion>5.4.0</NuGetPackageVersion>
-    <AspNetCoreHealthChecksVersion>6.0.4</AspNetCoreHealthChecksVersion>
-    <AspNetCoreHealthChecksSystemVersion>6.0.5</AspNetCoreHealthChecksSystemVersion>
-    <AspNetCoreHealthChecksSqlServerVersion>6.0.2</AspNetCoreHealthChecksSqlServerVersion>
-    <AspNetCoreHealthChecksIdSrvVersion>6.0.2</AspNetCoreHealthChecksIdSrvVersion>
-    <AspNetCoreHealthChecksUIVersion>6.0.5</AspNetCoreHealthChecksUIVersion>
+    <AspNetCoreHealthChecksVersion>7.0.0</AspNetCoreHealthChecksVersion>
+    <AspNetCoreHealthChecksSystemVersion>7.0.0</AspNetCoreHealthChecksSystemVersion>
+    <AspNetCoreHealthChecksSqlServerVersion>7.0.0</AspNetCoreHealthChecksSqlServerVersion>
+    <AspNetCoreHealthChecksIdSrvVersion>7.0.0</AspNetCoreHealthChecksIdSrvVersion>
+    <AspNetCoreHealthChecksUIVersion>7.0.0</AspNetCoreHealthChecksUIVersion>
     <SwashbuckleVersion>6.5.0</SwashbuckleVersion>
     <ServicesSharedVersion>1.1.2-prerelease</ServicesSharedVersion>
     <VSContainersVersion>1.10.9</VSContainersVersion>
