@@ -35,6 +35,10 @@ namespace LoginService
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+              services.Configure<PasswordHasherOptions>(options => {
+                options.CompatibilityMode = PasswordHasherCompatibilityMode.IdentityV2;
+            });
+            
             var filter = new MetricsFilter().WhereType(MetricType.Timer);
             var metrics = new MetricsBuilder()
                 /*.Report.ToConsole(
